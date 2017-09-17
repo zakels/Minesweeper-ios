@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014EA28E1F6E0A340017EAA2 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28D1F6E0A340017EAA2 /* profile.png */; };
+		014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28F1F6E0A3F0017EAA2 /* rank.png */; };
+		014EA2921F6E0A460017EAA2 /* mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA2911F6E0A460017EAA2 /* mine.png */; };
 		01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A375041F69DAB400B3A7D0 /* GoogleService-Info.plist */; };
 		01AF71B21F6217B500010A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71B11F6217B500010A92 /* AppDelegate.swift */; };
 		01AF71B41F6217B500010A92 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71B31F6217B500010A92 /* RootViewController.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		014EA28D1F6E0A340017EAA2 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		014EA28F1F6E0A3F0017EAA2 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
+		014EA2911F6E0A460017EAA2 /* mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine.png; sourceTree = "<group>"; };
 		01A375041F69DAB400B3A7D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AF71AE1F6217B500010A92 /* Minesweerper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweerper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AF71B11F6217B500010A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014EA28C1F6E09E00017EAA2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				014EA28D1F6E0A340017EAA2 /* profile.png */,
+				014EA2911F6E0A460017EAA2 /* mine.png */,
+				014EA28F1F6E0A3F0017EAA2 /* rank.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		01AF71A51F6217B400010A92 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +136,7 @@
 		01AF71B01F6217B500010A92 /* Minesweerper */ = {
 			isa = PBXGroup;
 			children = (
+				014EA28C1F6E09E00017EAA2 /* images */,
 				01AF71B11F6217B500010A92 /* AppDelegate.swift */,
 				01AF71B31F6217B500010A92 /* RootViewController.swift */,
 				01AF71B51F6217B500010A92 /* DataViewController.swift */,
@@ -296,7 +313,10 @@
 				01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */,
 				01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */,
 				01AF71BD1F6217B500010A92 /* Assets.xcassets in Resources */,
+				014EA28E1F6E0A340017EAA2 /* profile.png in Resources */,
+				014EA2921F6E0A460017EAA2 /* mine.png in Resources */,
 				01AF71BB1F6217B500010A92 /* Main.storyboard in Resources */,
+				014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
