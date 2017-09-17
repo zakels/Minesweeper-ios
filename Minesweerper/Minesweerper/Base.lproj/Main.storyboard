@@ -69,6 +69,9 @@
                                         <state key="normal" title="LOG IN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="bbV-Or-i7g" kind="show" id="YKv-aq-DS8"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgz-c7-hrH">
                                         <rect key="frame" x="120" y="172" width="95" height="21"/>
@@ -273,6 +276,9 @@
                                 <rect key="frame" x="124" y="580" width="126" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIGN UP"/>
+                                <connections>
+                                    <segue destination="bbV-Or-i7g" kind="show" id="kKZ-BO-KRW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,4 +348,7 @@
         <image name="profile.png" width="50" height="50"/>
         <image name="rank.png" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YKv-aq-DS8"/>
+    </inferredMetricsTieBreakers>
 </document>
