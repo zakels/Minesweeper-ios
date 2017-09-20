@@ -278,7 +278,6 @@
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
                                     <action selector="RegistButton:" destination="5YT-Yi-qXQ" eventType="touchUpInside" id="xjq-aU-llI"/>
-                                    <segue destination="bbV-Or-i7g" kind="show" id="kKZ-BO-KRW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repeat Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i58-Sh-vJQ">
@@ -314,6 +313,7 @@
                         <outlet property="repeatRegistor" destination="V7d-xy-3g9" id="gwW-bG-ENf"/>
                         <outlet property="userNameMessage" destination="AuG-9N-IcQ" id="DPL-AU-HGZ"/>
                         <outlet property="userNameRegistor" destination="tqn-WQ-6fU" id="ycc-LW-dyE"/>
+                        <segue destination="bbV-Or-i7g" kind="show" identifier="RegisterSegue" id="UnM-G6-5Ig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-5c-ZLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,6 +381,6 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kKZ-BO-KRW"/>
+        <segue reference="UnM-G6-5Ig"/>
     </inferredMetricsTieBreakers>
 </document>
