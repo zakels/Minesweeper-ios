@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */; };
 		014EA28E1F6E0A340017EAA2 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28D1F6E0A340017EAA2 /* profile.png */; };
 		014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28F1F6E0A3F0017EAA2 /* rank.png */; };
 		014EA2921F6E0A460017EAA2 /* mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA2911F6E0A460017EAA2 /* mine.png */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		014EA28D1F6E0A340017EAA2 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		014EA28F1F6E0A3F0017EAA2 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
 		014EA2911F6E0A460017EAA2 /* mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine.png; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				01AF71B31F6217B500010A92 /* RootViewController.swift */,
 				01AF71B51F6217B500010A92 /* DataViewController.swift */,
 				01AF71B71F6217B500010A92 /* ModelController.swift */,
+				0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
 				01AF71BC1F6217B500010A92 /* Assets.xcassets */,
 				01AF71BE1F6217B500010A92 /* LaunchScreen.storyboard */,
@@ -505,6 +508,7 @@
 				01AF71B81F6217B500010A92 /* ModelController.swift in Sources */,
 				01AF71B61F6217B500010A92 /* DataViewController.swift in Sources */,
 				01AF71B21F6217B500010A92 /* AppDelegate.swift in Sources */,
+				0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

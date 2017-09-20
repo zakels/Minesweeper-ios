@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
@@ -31,7 +32,17 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordMessage: UILabel!
     
     @IBAction func RegistButton(_ sender: UIButton) {
-        
+        if isValidEmail(testStr: emailRegistor.text!) {
+            Auth.auth().createUser(withEmail: emailRegistor.text!, password: passwordRegistor.text!) {(user, error) in
+                if error != nil {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
+                        alert.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true, completion: nil);
+                }
+            }
+        }
         
     }
     

@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="1512" y="-569"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="GJF-3T-t3w">
             <objects>
-                <viewController id="5YT-Yi-qXQ" sceneMemberID="viewController">
+                <viewController id="5YT-Yi-qXQ" customClass="RegistrationViewController" customModule="Minesweerper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dm6-jz-SEb"/>
                         <viewControllerLayoutGuide type="bottom" id="Ip1-IE-MM0"/>
@@ -277,12 +277,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
+                                    <action selector="RegistButton:" destination="5YT-Yi-qXQ" eventType="touchUpInside" id="xjq-aU-llI"/>
                                     <segue destination="bbV-Or-i7g" kind="show" id="kKZ-BO-KRW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailMessage" destination="SbX-AB-uBh" id="kD3-cL-JPX"/>
+                        <outlet property="emailRegistor" destination="8Jp-cJ-tHn" id="QzG-40-Rlh"/>
+                        <outlet property="passwordMessage" destination="srA-gu-hWM" id="ekx-Qm-EPl"/>
+                        <outlet property="passwordRegistor" destination="h7w-JS-Rk6" id="QmM-CH-ruf"/>
+                        <outlet property="userNameMessage" destination="AuG-9N-IcQ" id="DPL-AU-HGZ"/>
+                        <outlet property="userNameRegistor" destination="tqn-WQ-6fU" id="ycc-LW-dyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-5c-ZLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,6 +358,6 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YKv-aq-DS8"/>
+        <segue reference="kKZ-BO-KRW"/>
     </inferredMetricsTieBreakers>
 </document>
