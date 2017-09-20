@@ -20,7 +20,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     var email : String = ""
     var userName : String = ""
     var passWord : String = ""
-    
+    var repeatPassword : String = ""
     
     @IBOutlet weak var emailRegistor: UITextField!
     @IBOutlet weak var emailMessage: UILabel!
@@ -30,6 +30,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordRegistor: UITextField!
     @IBOutlet weak var passwordMessage: UILabel!
+    
+    
+    @IBOutlet weak var repeatRegistor: UITextField!
+    @IBOutlet weak var repeatMessage: UILabel!
     
     @IBAction func RegistButton(_ sender: UIButton) {
         if isValidEmail(testStr: emailRegistor.text!) {
@@ -44,13 +48,22 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+        email = emailRegistor.text!
+        userName = userNameRegistor.text!
+        passWord = passwordRegistor.text!
+        repeatPassword = repeatRegistor.text!
+        
+    
+        
     }
     
-    override func viewDidLoad() {
-        emailRegistor.addTarget(self, action: #selector(emailFieldDidChange(textField:)), for: UIControlEvents.editingDidEnd)
-        userNameRegistor.addTarget(self, action: #selector(userNameFieldDidChange(textField:)), for:  UIControlEvents.editingChanged)
-        passwordRegistor.addTarget(self, action: #selector(passwordFieldDidChange(textField:)), for:  UIControlEvents.editingChanged)
+    func isValid() -> Bool {
+        if emailCheck() && userNameCheck() && passwordCheck() && repeatCheck() {
+            
+        }
+        return true
     }
+    
     
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
@@ -60,7 +73,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         return emailTest.evaluate(with: testStr)
     }
     
-    func emailFieldDidChange(textField: UITextField){
+    func emailCheck() -> Bool {
         
         //Check if email is empty
         if email == ""{
@@ -81,7 +94,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     //
-    func userNameFieldDidChange(textField: UITextField){
+    func userNameCheck() -> Bool {
         
         //Check if user name is empty
         if userName == ""{
@@ -105,8 +118,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func passwordFieldDidChange(textField: UITextField){
+    func passwordCheck() -> Bool {
         
+        var result : Bool = false
         //Check if passWord is empty
         if passWord == "" {
             passwordMessage.textColor = UIColor.red
@@ -114,20 +128,34 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Check length of passWord
-        if passWord.characters.count < 6{
+        else if passWord.characters.count < 6{
             passwordMessage.textColor = UIColor.red
             passwordMessage.text = "Password should be at least 6 characters"
         }
         
-        if passWord.characters.count > 16{
+        else if passWord.characters.count > 16{
             passwordMessage.textColor = UIColor.red
             passwordMessage.text = "Password should be no longer than 16 characters"
         }
         
-        if passWord.characters.count >= 6 && passWord.characters.count <= 16 {
+        else if passWord.characters.count >= 6 && passWord.characters.count <= 16 {
             passwordMessage.text = ""
         }
         
+        else {
+            result = true
+        }
+        
+        return result
+        
+    }
+    
+    func repeatCheck() -> Bool {
+        if passWord == repeatPassword {
+            return true
+        }else{
+            return false
+        }
     }
     
     
