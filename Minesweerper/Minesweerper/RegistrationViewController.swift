@@ -36,7 +36,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var repeatMessage: UILabel!
     
     @IBAction func RegistButton(_ sender: UIButton) {
-        if isValidEmail(testStr: emailRegistor.text!) {
+        
+        email = emailRegistor.text!
+        userName = userNameRegistor.text!
+        passWord = passwordRegistor.text!
+        repeatPassword = repeatRegistor.text!
+        
+        if isValid() {
             Auth.auth().createUser(withEmail: emailRegistor.text!, password: passwordRegistor.text!) {(user, error) in
                 if error != nil {
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -48,20 +54,15 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        email = emailRegistor.text!
-        userName = userNameRegistor.text!
-        passWord = passwordRegistor.text!
-        repeatPassword = repeatRegistor.text!
-        
-    
-        
     }
     
     func isValid() -> Bool {
         if emailCheck() && userNameCheck() && passwordCheck() && repeatCheck() {
-            
+            return true
         }
-        return true
+        else {
+            return false
+        }
     }
     
     
@@ -75,6 +76,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     func emailCheck() -> Bool {
         
+        var result : Bool = false
         //Check if email is empty
         if email == ""{
             emailMessage.textColor = UIColor.red
@@ -82,20 +84,21 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Check if email is valid
-        if !isValidEmail(testStr: email){
+        else if !isValidEmail(testStr: email){
             emailMessage.textColor = UIColor.red
             emailMessage.text = "Please input a valid email"
         }else{
             
-            emailMessage.text = ""
+            result = true
         }
        
-
+        return result
     }
     
     //
     func userNameCheck() -> Bool {
         
+        var result : Bool = false
         //Check if user name is empty
         if userName == ""{
             userNameMessage.textColor = UIColor.red
@@ -103,19 +106,21 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Check length of user name
-        if userName.characters.count < 4{
+        else if userName.characters.count < 4{
             userNameMessage.textColor = UIColor.red
             userNameMessage.text = "User name should be at least 4 characters"
         }
         
-        if userName.characters.count > 15{
+        else if userName.characters.count > 15{
             userNameMessage.textColor = UIColor.red
             userNameMessage.text = "User name should be no longer than 15 characters"
         }
 
-        if userName.characters.count >= 4 && userName.characters.count <= 15{
-            userNameMessage.text = ""
+        else {
+            result = true
         }
+        
+        return result
     }
     
     func passwordCheck() -> Bool {

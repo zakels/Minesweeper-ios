@@ -313,7 +313,7 @@
                         <outlet property="repeatRegistor" destination="V7d-xy-3g9" id="gwW-bG-ENf"/>
                         <outlet property="userNameMessage" destination="AuG-9N-IcQ" id="DPL-AU-HGZ"/>
                         <outlet property="userNameRegistor" destination="tqn-WQ-6fU" id="ycc-LW-dyE"/>
-                        <segue destination="bbV-Or-i7g" kind="show" identifier="RegisterSegue" id="UnM-G6-5Ig"/>
+                        <segue destination="bbV-Or-i7g" kind="showDetail" identifier="SignUpSegue" id="SKp-3k-uzQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-5c-ZLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,6 +381,6 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UnM-G6-5Ig"/>
+        <segue reference="SKp-3k-uzQ"/>
     </inferredMetricsTieBreakers>
 </document>
