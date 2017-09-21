@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01374E241F7452F0000DDDF5 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374E231F7452F0000DDDF5 /* ChangeNameViewController.swift */; };
+		01374E261F74532F000DDDF5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */; };
+		01374E281F7455B1000DDDF5 /* Coins.png in Resources */ = {isa = PBXBuildFile; fileRef = 01374E271F7455B1000DDDF5 /* Coins.png */; };
 		0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */; };
 		014EA28E1F6E0A340017EAA2 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28D1F6E0A340017EAA2 /* profile.png */; };
 		014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28F1F6E0A3F0017EAA2 /* rank.png */; };
@@ -21,7 +24,8 @@
 		01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AF71BE1F6217B500010A92 /* LaunchScreen.storyboard */; };
 		01AF71CB1F6217B500010A92 /* MinesweerperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71CA1F6217B500010A92 /* MinesweerperTests.swift */; };
 		01AF71D61F6217B500010A92 /* MinesweerperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71D51F6217B500010A92 /* MinesweerperUITests.swift */; };
-		01CEC5911F733A6F005C7C2D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC5901F733A6F005C7C2D /* User.swift */; };
+		01CEC5911F733A6F005C7C2D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC5901F733A6F005C7C2D /* Users.swift */; };
+		01CEC5951F735761005C7C2D /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC5941F735761005C7C2D /* profileViewController.swift */; };
 		A28021CADDBAB44A901B1F24 /* Pods_MinesweerperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */; };
 		BF1C7298557EA63411EF2B18 /* Pods_MinesweerperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */; };
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
@@ -46,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01374E231F7452F0000DDDF5 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		01374E271F7455B1000DDDF5 /* Coins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coins.png; sourceTree = "<group>"; };
 		0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		014EA28D1F6E0A340017EAA2 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		014EA28F1F6E0A3F0017EAA2 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
@@ -66,7 +73,8 @@
 		01AF71D11F6217B500010A92 /* MinesweerperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweerperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AF71D51F6217B500010A92 /* MinesweerperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweerperUITests.swift; sourceTree = "<group>"; };
 		01AF71D71F6217B500010A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01CEC5901F733A6F005C7C2D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		01CEC5901F733A6F005C7C2D /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		01CEC5941F735761005C7C2D /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minesweerper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1AD5A431B0CEDCADA10F1 /* Pods-MinesweerperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperUITests/Pods-MinesweerperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FE0F6D41B61A79CF0573831 /* Pods-MinesweerperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperTests/Pods-MinesweerperTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		014EA28C1F6E09E00017EAA2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				01374E271F7455B1000DDDF5 /* Coins.png */,
 				014EA28D1F6E0A340017EAA2 /* profile.png */,
 				014EA2911F6E0A460017EAA2 /* mine.png */,
 				014EA28F1F6E0A3F0017EAA2 /* rank.png */,
@@ -149,8 +158,11 @@
 				01AF71B71F6217B500010A92 /* ModelController.swift */,
 				0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */,
 				FD15DC461F734221006615FD /* Rank.swift */,
-				01CEC5901F733A6F005C7C2D /* User.swift */,
+				01CEC5901F733A6F005C7C2D /* Users.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
+				01374E231F7452F0000DDDF5 /* ChangeNameViewController.swift */,
+				01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */,
+				01CEC5941F735761005C7C2D /* profileViewController.swift */,
 				01AF71BC1F6217B500010A92 /* Assets.xcassets */,
 				01AF71BE1F6217B500010A92 /* LaunchScreen.storyboard */,
 				01A375041F69DAB400B3A7D0 /* GoogleService-Info.plist */,
@@ -321,6 +333,7 @@
 			files = (
 				01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */,
 				01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */,
+				01374E281F7455B1000DDDF5 /* Coins.png in Resources */,
 				01AF71BD1F6217B500010A92 /* Assets.xcassets in Resources */,
 				014EA28E1F6E0A340017EAA2 /* profile.png in Resources */,
 				014EA2921F6E0A460017EAA2 /* mine.png in Resources */,
@@ -512,10 +525,13 @@
 			files = (
 				01AF71B41F6217B500010A92 /* RootViewController.swift in Sources */,
 				01AF71B81F6217B500010A92 /* ModelController.swift in Sources */,
-				01CEC5911F733A6F005C7C2D /* User.swift in Sources */,
+				01CEC5911F733A6F005C7C2D /* Users.swift in Sources */,
+				01374E261F74532F000DDDF5 /* ChangePasswordViewController.swift in Sources */,
 				01AF71B61F6217B500010A92 /* DataViewController.swift in Sources */,
 				01AF71B21F6217B500010A92 /* AppDelegate.swift in Sources */,
 				FD15DC471F734221006615FD /* Rank.swift in Sources */,
+				01374E241F7452F0000DDDF5 /* ChangeNameViewController.swift in Sources */,
+				01CEC5951F735761005C7C2D /* profileViewController.swift in Sources */,
 				0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
