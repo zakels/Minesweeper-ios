@@ -364,6 +364,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Username"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2m-NJ-e3H">
+                                <rect key="frame" x="156" y="505" width="63" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <segue destination="5YT-Yi-qXQ" kind="showDetail" identifier="LogOutSegue" id="Flq-jT-ciu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -372,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnI-Zq-OPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-156"/>
+            <point key="canvasLocation" x="2461.5999999999999" y="-156.07196401799101"/>
         </scene>
     </scenes>
     <resources>
@@ -382,5 +390,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SKp-3k-uzQ"/>
+        <segue reference="Flq-jT-ciu"/>
     </inferredMetricsTieBreakers>
 </document>
