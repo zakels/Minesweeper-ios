@@ -61,12 +61,17 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isValid() -> Bool {
-        if emailCheck() && userNameCheck() && passwordCheck() && repeatCheck() {
-            return true
-        }
-        else {
-            return false
-        }
+        var emailValid : Bool = false
+        var userNameValid : Bool = false
+        var passwordValid : Bool = false
+        var repeatValid : Bool = false
+        
+        emailValid = emailCheck()
+        userNameValid = userNameCheck()
+        passwordValid = passwordCheck()
+        repeatValid = repeatCheck()
+        
+        return emailValid && userNameValid && passwordValid && repeatValid
     }
     
     
@@ -82,6 +87,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         var result : Bool = false
         //Check if email is empty
+        
         if email == ""{
             emailMessage.textColor = UIColor.red
             emailMessage.text = "Email should not be empty!"
@@ -161,10 +167,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     func repeatCheck() -> Bool {
         if passWord == repeatPassword {
+            repeatMessage.text = ""
             return true
         }
         
         else{
+            repeatMessage.textColor = UIColor.red
             repeatMessage.text = "Not match with password"
             return false
         }

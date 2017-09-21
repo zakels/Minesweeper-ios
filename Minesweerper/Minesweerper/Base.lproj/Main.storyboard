@@ -369,7 +369,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
-                                    <segue destination="IAM-wE-0Bh" kind="showDetail" id="tJR-K6-al0"/>
+                                    <segue destination="IAM-wE-0Bh" kind="showDetail" identifier="LogoutSegue" id="tJR-K6-al0"/>
                                 </connections>
                             </button>
                         </subviews>
