@@ -70,7 +70,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="bbV-Or-i7g" kind="show" id="YKv-aq-DS8"/>
+                                            <action selector="loginToMain:" destination="IAM-wE-0Bh" eventType="touchUpInside" id="cVg-Sl-cKA"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgz-c7-hrH">
@@ -126,7 +126,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dataLabel" destination="oat-XA-YuU" id="WdG-hM-OpF"/>
+                        <outlet property="dataLabel" destination="oat-XA-YuU" id="AY2-Rp-dRN"/>
+                        <outlet property="passwordField" destination="NnU-51-I8k" id="Cgu-qG-ZXQ"/>
+                        <outlet property="usernameField" destination="s5A-px-qmr" id="vZv-cW-Buc"/>
+                        <segue destination="bbV-Or-i7g" kind="show" identifier="LoginSegue" id="35f-hI-Pr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6k-l1-Mpq" sceneMemberID="firstResponder"/>
@@ -389,6 +392,6 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YKv-aq-DS8"/>
+        <segue reference="35f-hI-Pr6"/>
     </inferredMetricsTieBreakers>
 </document>
