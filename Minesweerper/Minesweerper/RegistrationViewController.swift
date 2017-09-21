@@ -43,8 +43,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         repeatPassword = repeatRegistor.text!
         
         if isValid() {
-            Auth.auth().createUser(withEmail: emailRegistor.text!, password: passwordRegistor.text!) {(user, error) in
-                if error != nil {
+            Auth.auth().createUser(withEmail: email, password: passWord) {(user, error) in
+                if error == nil {
+                    Auth.auth().signIn(withEmail: self.email, password: self.passWord)
+                    
+                    self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+                } else {
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
                         alert.dismiss(animated: true, completion: nil)
