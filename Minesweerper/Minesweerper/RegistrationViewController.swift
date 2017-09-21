@@ -73,7 +73,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        
+    
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
@@ -91,8 +91,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         else if !isValidEmail(testStr: email){
             emailMessage.textColor = UIColor.red
             emailMessage.text = "Please input a valid email"
-        }else{
-            
+        }
+        
+        else{
+            emailMessage.text = ""
             result = true
         }
        
@@ -122,6 +124,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
 
         else {
             result = true
+            userNameMessage.text = ""
         }
         
         return result
@@ -147,11 +150,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             passwordMessage.text = "Password should be no longer than 16 characters"
         }
         
-        else if passWord.characters.count >= 6 && passWord.characters.count <= 16 {
-            passwordMessage.text = ""
-        }
-        
         else {
+            passwordMessage.text = ""
             result = true
         }
         
@@ -162,7 +162,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     func repeatCheck() -> Bool {
         if passWord == repeatPassword {
             return true
-        }else{
+        }
+        
+        else{
+            repeatMessage.text = "Not match with password"
             return false
         }
     }
