@@ -46,7 +46,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: email, password: passWord) {(user, error) in
                 if error == nil {
                     Auth.auth().signIn(withEmail: self.email, password: self.passWord)
-                    
+                    let newUser = Users(email: self.email, username: self.userName, password: self.passWord, uid: (user?.uid)!)
+                    let rootRef = Database.database().reference(withPath: "Users")
+                    let userRef = rootRef.child((user?.uid)!)
+                    userRef.setValue(newUser.toAnyObject())
                     self.performSegue(withIdentifier: "RegisterSegue", sender: self)
                 } else {
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)

@@ -12,14 +12,17 @@ public class Users {
     let email: String
     var username: String
     var password: String
-    
+    let uid: String
     var points: Int
+    var coints: Int
     
-    init(email: String, username: String, password: String) {
+    init(email: String, username: String, password: String, uid: String) {
         self.email = email
         self.username = username
         self.password = password
         self.points = 0;
+        self.coints = 0;
+        self.uid = uid
     }
     
     func toAnyObject() -> Any {
@@ -27,7 +30,8 @@ public class Users {
             "email": email,
             "username": username,
             "password": password,
-            "points": points
+            "points": points,
+            "coints": coints
         ]
     }
 }
