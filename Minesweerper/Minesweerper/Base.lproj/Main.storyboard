@@ -288,7 +288,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwJ-nA-Dh6">
-                                <rect key="frame" x="32" y="521" width="286" height="21"/>
+                                <rect key="frame" x="32" y="521" width="286" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -369,7 +369,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
-                                    <segue destination="5YT-Yi-qXQ" kind="showDetail" identifier="LogOutSegue" id="Flq-jT-ciu"/>
+                                    <segue destination="IAM-wE-0Bh" kind="showDetail" id="tJR-K6-al0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,6 +390,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SKp-3k-uzQ"/>
-        <segue reference="Flq-jT-ciu"/>
     </inferredMetricsTieBreakers>
 </document>
