@@ -158,7 +158,7 @@
         <!--Game-->
         <scene sceneID="Giv-WS-S01">
             <objects>
-                <viewController id="z8D-UO-yru" sceneMemberID="viewController">
+                <viewController id="z8D-UO-yru" customClass="GameViewController" customModule="Minesweerper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zuK-8w-D0J"/>
                         <viewControllerLayoutGuide type="bottom" id="HB9-OZ-0sO"/>
@@ -565,7 +565,7 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pYy-Ar-4Gj"/>
         <segue reference="35f-hI-Pr6"/>
-        <segue reference="4Iy-hY-mH9"/>
     </inferredMetricsTieBreakers>
 </document>

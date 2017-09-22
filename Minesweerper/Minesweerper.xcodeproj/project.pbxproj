@@ -26,6 +26,12 @@
 		01AF71D61F6217B500010A92 /* MinesweerperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71D51F6217B500010A92 /* MinesweerperUITests.swift */; };
 		01CEC5911F733A6F005C7C2D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC5901F733A6F005C7C2D /* Users.swift */; };
 		01CEC5951F735761005C7C2D /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC5941F735761005C7C2D /* profileViewController.swift */; };
+		625BE2E91F7492C5005005F8 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2E81F7492C5005005F8 /* GameBoard.swift */; };
+		625BE2EB1F749398005005F8 /* GameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2EA1F749398005005F8 /* GameTile.swift */; };
+		625BE2ED1F749431005005F8 /* GameTileSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2EC1F749431005005F8 /* GameTileSprite.swift */; };
+		625BE2EF1F749575005005F8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2EE1F749575005005F8 /* GameViewController.swift */; };
+		625BE2F11F7495C6005005F8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2F01F7495C6005005F8 /* GameScene.swift */; };
+		625BE2F51F74993B005005F8 /* GameEndViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625BE2F41F74993B005005F8 /* GameEndViewControllerDelegate.swift */; };
 		A28021CADDBAB44A901B1F24 /* Pods_MinesweerperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */; };
 		BF1C7298557EA63411EF2B18 /* Pods_MinesweerperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */; };
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
@@ -79,6 +85,12 @@
 		34B1AD5A431B0CEDCADA10F1 /* Pods-MinesweerperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperUITests/Pods-MinesweerperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FE0F6D41B61A79CF0573831 /* Pods-MinesweerperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperTests/Pods-MinesweerperTests.release.xcconfig"; sourceTree = "<group>"; };
 		54293358307B394E18518882 /* Pods-MinesweerperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperTests/Pods-MinesweerperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		625BE2E81F7492C5005005F8 /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		625BE2EA1F749398005005F8 /* GameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTile.swift; sourceTree = "<group>"; };
+		625BE2EC1F749431005005F8 /* GameTileSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTileSprite.swift; sourceTree = "<group>"; };
+		625BE2EE1F749575005005F8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		625BE2F01F7495C6005005F8 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		625BE2F41F74993B005005F8 /* GameEndViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewControllerDelegate.swift; sourceTree = "<group>"; };
 		9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinesweerperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CC79ABDF35C352925EBEE4 /* Pods-Minesweerper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.debug.xcconfig"; sourceTree = "<group>"; };
 		D9F047E95D397A455195C4AC /* Pods-MinesweerperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperUITests/Pods-MinesweerperUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +172,12 @@
 				FD15DC461F734221006615FD /* Rank.swift */,
 				01CEC5901F733A6F005C7C2D /* Users.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
+				625BE2E81F7492C5005005F8 /* GameBoard.swift */,
+				625BE2EC1F749431005005F8 /* GameTileSprite.swift */,
+				625BE2EE1F749575005005F8 /* GameViewController.swift */,
+				625BE2F41F74993B005005F8 /* GameEndViewControllerDelegate.swift */,
+				625BE2F01F7495C6005005F8 /* GameScene.swift */,
+				625BE2EA1F749398005005F8 /* GameTile.swift */,
 				01374E231F7452F0000DDDF5 /* ChangeNameViewController.swift */,
 				01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */,
 				01CEC5941F735761005C7C2D /* profileViewController.swift */,
@@ -523,16 +541,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625BE2F11F7495C6005005F8 /* GameScene.swift in Sources */,
+				625BE2F51F74993B005005F8 /* GameEndViewControllerDelegate.swift in Sources */,
+				625BE2EF1F749575005005F8 /* GameViewController.swift in Sources */,
 				01AF71B41F6217B500010A92 /* RootViewController.swift in Sources */,
+				625BE2EB1F749398005005F8 /* GameTile.swift in Sources */,
 				01AF71B81F6217B500010A92 /* ModelController.swift in Sources */,
 				01CEC5911F733A6F005C7C2D /* Users.swift in Sources */,
 				01374E261F74532F000DDDF5 /* ChangePasswordViewController.swift in Sources */,
 				01AF71B61F6217B500010A92 /* DataViewController.swift in Sources */,
 				01AF71B21F6217B500010A92 /* AppDelegate.swift in Sources */,
 				FD15DC471F734221006615FD /* Rank.swift in Sources */,
+				625BE2ED1F749431005005F8 /* GameTileSprite.swift in Sources */,
 				01374E241F7452F0000DDDF5 /* ChangeNameViewController.swift in Sources */,
 				01CEC5951F735761005C7C2D /* profileViewController.swift in Sources */,
 				0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */,
+				625BE2E91F7492C5005005F8 /* GameBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
