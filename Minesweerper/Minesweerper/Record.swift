@@ -1,5 +1,5 @@
 //
-//  Rank.swift
+//  Record.swift
 //  Minesweerper
 //
 //  Created by Wenya Zhu on 9/20/17.
@@ -25,7 +25,7 @@ public class Record {
             self.userName = (dictionary?["username"] as? String)!
             
         }) { (error) in
-            print(error.localizedDescription)
+                print(error.localizedDescription)
         }
         
     }
