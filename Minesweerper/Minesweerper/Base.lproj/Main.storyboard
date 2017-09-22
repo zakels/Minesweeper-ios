@@ -451,6 +451,20 @@
                                     <action selector="submitChange:" destination="uyU-Lp-yIz" eventType="touchUpInside" id="KyO-ew-c1x"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ap-4z-NdR">
+                                <rect key="frame" x="67" y="341" width="240" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn4-UU-54L">
+                                <rect key="frame" x="67" y="425" width="240" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter your new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzy-Mi-aap">
                                 <rect key="frame" x="67" y="387" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -464,6 +478,8 @@
                     <connections>
                         <outlet property="newPassword" destination="5JT-hP-W1a" id="aTb-e3-gWs"/>
                         <outlet property="oldPassword" destination="2eT-6W-dsA" id="DmP-Qs-meS"/>
+                        <outlet property="passwordMessage" destination="8ap-4z-NdR" id="a16-PA-agV"/>
+                        <outlet property="repeatMessage" destination="Jn4-UU-54L" id="VaB-g8-5D0"/>
                         <outlet property="repeatPassword" destination="Pzy-Mi-aap" id="qKU-aW-LiG"/>
                     </connections>
                 </viewController>
@@ -521,11 +537,19 @@
                                     <segue destination="MmQ-lb-HKp" kind="show" id="gNl-tE-C9F"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msc-Id-cTh">
+                                <rect key="frame" x="99" y="356" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="newName" destination="dP5-Qd-3Bz" id="Jxq-L0-vLx"/>
+                        <outlet property="userNameMessage" destination="msc-Id-cTh" id="SQz-Xx-hz8"/>
                         <segue destination="MmQ-lb-HKp" kind="show" identifier="changeNameSegue" id="4j2-Ed-zfB"/>
                     </connections>
                 </viewController>
@@ -542,6 +566,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="35f-hI-Pr6"/>
-        <segue reference="gNl-tE-C9F"/>
+        <segue reference="4Iy-hY-mH9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ import FirebaseDatabase
 class ChangeNameViewController: UIViewController {
     
     @IBOutlet weak var newName: UITextField!
+    @IBOutlet weak var userNameMessage: UILabel!
     var uid: String = ""
     var cuser: Users?
     
@@ -28,9 +29,39 @@ class ChangeNameViewController: UIViewController {
     }
     
     @IBAction func SubmitChange(_ sender: UIButton) {
-        self.cuser?.username = newName.text!
-        let ref = Database.database().reference().child("Users").child(self.uid)
-        ref.updateChildValues((cuser?.toTable())!)
-        self.performSegue(withIdentifier: "changeNameSegue", sender: self)
+        if userNameCheck() {
+            self.cuser?.username = newName.text!
+            let ref = Database.database().reference().child("Users").child(self.uid)
+            ref.updateChildValues((cuser?.toTable())!)
+            self.performSegue(withIdentifier: "changeNameSegue", sender: self)
+        }
+    }
+    
+    func userNameCheck() -> Bool {
+        
+        var result : Bool = false
+        //Check if user name is empty
+        if newName.text == ""{
+            userNameMessage.textColor = UIColor.red
+            userNameMessage.text = "UserName should not be empty!"
+        }
+            
+            //Check length of user name
+        else if ((newName.text)?.characters.count)! < 4{
+            userNameMessage.textColor = UIColor.red
+            userNameMessage.text = "User name should be at least 4 characters"
+        }
+            
+        else if ((newName.text)?.characters.count)! > 15{
+            userNameMessage.textColor = UIColor.red
+            userNameMessage.text = "User name should be no longer than 15 characters"
+        }
+            
+        else {
+            result = true
+            userNameMessage.text = ""
+        }
+        
+        return result
     }
 }
