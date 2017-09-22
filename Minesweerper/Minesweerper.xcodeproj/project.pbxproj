@@ -36,7 +36,7 @@
 		BF1C7298557EA63411EF2B18 /* Pods_MinesweerperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */; };
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
 		FD15DC4D1F74B05B006615FD /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4C1F74B05B006615FD /* Rank.swift */; };
-		FD15DC4F1F74B060006615FD /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4E1F74B060006615FD /* Record.swift */; };
+		FD15DC4F1F74B060006615FD /* UserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4E1F74B060006615FD /* UserRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +98,7 @@
 		ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinesweerperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94D14B3EBA91B2BEBC28B6E /* Pods-Minesweerper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.release.xcconfig"; sourceTree = "<group>"; };
 		FD15DC4C1F74B05B006615FD /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rank.swift; path = "../../../408-Minesweeper/Minesweerper/Minesweerper/Rank.swift"; sourceTree = "<group>"; };
-		FD15DC4E1F74B060006615FD /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Record.swift; path = "../../../408-Minesweeper/Minesweerper/Minesweerper/Record.swift"; sourceTree = "<group>"; };
+		FD15DC4E1F74B060006615FD /* UserRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 				01AF71B71F6217B500010A92 /* ModelController.swift */,
 				0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */,
 				FD15DC4C1F74B05B006615FD /* Rank.swift */,
-				FD15DC4E1F74B060006615FD /* Record.swift */,
+				FD15DC4E1F74B060006615FD /* UserRecord.swift */,
 				01CEC5901F733A6F005C7C2D /* Users.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
 				625BE2E81F7492C5005005F8 /* GameBoard.swift */,
@@ -559,7 +559,7 @@
 				01374E241F7452F0000DDDF5 /* ChangeNameViewController.swift in Sources */,
 				01CEC5951F735761005C7C2D /* profileViewController.swift in Sources */,
 				0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */,
-				FD15DC4F1F74B060006615FD /* Record.swift in Sources */,
+				FD15DC4F1F74B060006615FD /* UserRecord.swift in Sources */,
 				625BE2E91F7492C5005005F8 /* GameBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-public class Record {
+public class userRecord {
     var uid : String = ""
     var points : Int = 0
     var userName : String = ""
@@ -30,7 +30,7 @@ public class Record {
         
     }
     
-    func creatRecord(record: Record){
+    func creatRecord(record: userRecord){
         var size : Int = 0
         
         let level = "Level" + String(record.level)
