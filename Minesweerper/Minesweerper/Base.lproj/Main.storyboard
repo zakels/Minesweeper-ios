@@ -354,6 +354,9 @@
                                 <rect key="frame" x="126" y="431" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <segue destination="uyU-Lp-yIz" kind="show" id="1o6-3G-eaH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF1-Jr-d9W">
                                 <rect key="frame" x="123" y="341" width="128" height="30"/>
@@ -394,7 +397,6 @@
                         <outlet property="points" destination="9bK-S9-AUR" id="IZ3-Vl-8hg"/>
                         <outlet property="username" destination="TNm-ER-XA8" id="P1s-DU-Wca"/>
                         <segue destination="IAM-wE-0Bh" kind="show" identifier="logoutSegue" id="IqT-k5-qLg"/>
-                        <segue destination="uyU-Lp-yIz" kind="show" identifier="passwordSegue" id="h5y-aG-lUK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnI-Zq-OPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -481,6 +483,7 @@
                         <outlet property="passwordMessage" destination="8ap-4z-NdR" id="a16-PA-agV"/>
                         <outlet property="repeatMessage" destination="Jn4-UU-54L" id="VaB-g8-5D0"/>
                         <outlet property="repeatPassword" destination="Pzy-Mi-aap" id="qKU-aW-LiG"/>
+                        <segue destination="MmQ-lb-HKp" kind="show" identifier="ChangePasswordSegue" id="t1H-B5-jM0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltr-Vk-eXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -565,7 +568,7 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pYy-Ar-4Gj"/>
+        <segue reference="t1H-B5-jM0"/>
         <segue reference="35f-hI-Pr6"/>
     </inferredMetricsTieBreakers>
 </document>
