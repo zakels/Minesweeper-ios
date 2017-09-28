@@ -172,6 +172,14 @@
                                     <action selector="LevelThreeButton:" destination="YB3-MB-HJz" eventType="touchUpInside" id="x8d-Oh-9Iv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E24-cc-pgD">
+                                <rect key="frame" x="49" y="234" width="277" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLf-EO-YcW">
                                 <rect key="frame" x="49" y="285" width="277" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,6 +219,7 @@
                     <connections>
                         <outlet property="RankFive" destination="7aI-Mt-t4G" id="q4F-8s-Cji"/>
                         <outlet property="RankFour" destination="blg-O5-eb9" id="Efj-f8-knh"/>
+                        <outlet property="RankOne" destination="E24-cc-pgD" id="ALu-Vn-uNI"/>
                         <outlet property="RankThree" destination="edP-Tf-Mhw" id="9kQ-g3-jgU"/>
                         <outlet property="RankTwo" destination="WLf-EO-YcW" id="Pet-n0-vdV"/>
                     </connections>
