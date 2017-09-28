@@ -37,6 +37,7 @@
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
 		FD15DC4D1F74B05B006615FD /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4C1F74B05B006615FD /* Rank.swift */; };
 		FD15DC4F1F74B060006615FD /* UserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4E1F74B060006615FD /* UserRecord.swift */; };
+		FD15DC511F7C7D4D006615FD /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC501F7C7D4D006615FD /* RankViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		F94D14B3EBA91B2BEBC28B6E /* Pods-Minesweerper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.release.xcconfig"; sourceTree = "<group>"; };
 		FD15DC4C1F74B05B006615FD /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rank.swift; path = "../../../408-Minesweeper/Minesweerper/Minesweerper/Rank.swift"; sourceTree = "<group>"; };
 		FD15DC4E1F74B060006615FD /* UserRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecord.swift; sourceTree = "<group>"; };
+		FD15DC501F7C7D4D006615FD /* RankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				FD15DC4E1F74B060006615FD /* UserRecord.swift */,
 				01CEC5901F733A6F005C7C2D /* Users.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
+				FD15DC501F7C7D4D006615FD /* RankViewController.swift */,
 				625BE2E81F7492C5005005F8 /* GameBoard.swift */,
 				625BE2EC1F749431005005F8 /* GameTileSprite.swift */,
 				625BE2EE1F749575005005F8 /* GameViewController.swift */,
@@ -546,6 +549,7 @@
 			files = (
 				625BE2F11F7495C6005005F8 /* GameScene.swift in Sources */,
 				FD15DC4D1F74B05B006615FD /* Rank.swift in Sources */,
+				FD15DC511F7C7D4D006615FD /* RankViewController.swift in Sources */,
 				625BE2F51F74993B005005F8 /* GameEndViewControllerDelegate.swift in Sources */,
 				625BE2EF1F749575005005F8 /* GameViewController.swift in Sources */,
 				01AF71B41F6217B500010A92 /* RootViewController.swift in Sources */,
