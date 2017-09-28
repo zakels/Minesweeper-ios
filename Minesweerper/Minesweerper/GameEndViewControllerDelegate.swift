@@ -39,6 +39,7 @@ class GameEndViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.84)
         self.view.alpha = 0.0
         
+        //time
         let faceImage = UIImageView(image: (self.endGameStats["flaggedMineCount"] as! Int) == (self.endGameStats["mineCount"] as! Int) ? UIImage(named: "happyface") : UIImage(named: "sadface"))
         faceImage.frame = CGRect(x: 0, y: 0, width: 46.0, height: 46.0)
         faceImage.center = CGPoint(x: self.view.center.x, y: self.view.center.y - (23.0 + 30.0))
@@ -55,7 +56,9 @@ class GameEndViewController: UIViewController {
         timeTakenValue.sizeToFit()
         timeTakenValue.frame = CGRect(x: (timeTakenImage.frame.origin.x + timeTakenImage.frame.size.width) + 10.0, y: 33.0, width: timeTakenValue.frame.size.width, height: timeTakenValue.frame.size.height)
         self.view.addSubview(timeTakenValue)
+       
         
+        //percentage
         let boardClaimedImage = UIImageView(image: UIImage(named: "percentageIcon"))
         boardClaimedImage.frame = CGRect(x: (self.view.frame.size.width - 28.0) - 30.0, y: 30.0, width: 28.0, height: 28.0)
         self.view.addSubview(boardClaimedImage)
@@ -78,7 +81,7 @@ class GameEndViewController: UIViewController {
         let attributedParentString = NSMutableAttributedString(string: "You found ")
         attributedParentString.setAttributes([NSFontAttributeName : UIFont.systemFont(ofSize: 27.0), NSParagraphStyleAttributeName : paragraph], range: NSMakeRange(0, attributedParentString.length))
         
-        for i in 0..<4 {
+        for i in 0..<5 {
             
             var string = ""
             var attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 27.0), NSParagraphStyleAttributeName: paragraph]
@@ -91,9 +94,14 @@ class GameEndViewController: UIViewController {
             } else if i == 2 {
                 string = (self.endGameStats["mineCount"] as! Int).description + " mines"
                 attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 27.0, weight: UIFontWeightHeavy)]
+            } else if i == 3{
+                string = ".\n Your Scores: "
             } else {
-                string = "."
+                string = (self.endGameStats["scores"] as! Int).description
+                attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 27.0, weight: UIFontWeightHeavy)]
+
             }
+            
             
             let attributedChildString = NSMutableAttributedString(string: string)
             attributedChildString.setAttributes(attributes, range: NSMakeRange(0, attributedChildString.length))

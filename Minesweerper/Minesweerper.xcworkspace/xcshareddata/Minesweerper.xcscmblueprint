@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++F70F8A0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++F70F8A0" : 9223372036854775807,
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++E345BD3" : 9223372036854775807,
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++326ECBF" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C665FDA1-0823-4F63-BD11-5903E7594D08",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++F70F8A0" : "408-Minesweeper000\/",
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++E345BD3" : "408-Minesweeper\/",
+    "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++326ECBF" : "408-Minesweeper\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Minesweerper",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Minesweerper\/Minesweerper.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mlnhld\/408-Minesweeper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++326ECBF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mlnhld\/408-Minesweeper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++E345BD3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mlnhld\/408-Minesweeper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E8B69DA57D037B320061F5BBA27E9E973AF8A0B+++F70F8A0"
+    }
+  ]
+}

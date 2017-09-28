@@ -72,6 +72,7 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
             "flagCount"          : finalBoardResults[1],
             "flaggedMineCount"   : finalBoardResults[2],
             "revealedTileCount"  : finalBoardResults[3],
+            "scores"             : finalBoardResults[4],
             "totalTiles"         : self.gameScene.board.columns * self.gameScene.board.rows
             ] as [String : Any]
         

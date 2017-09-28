@@ -18,6 +18,10 @@ public class Rank {
         self.level = level
     }
     
+    func changeLevel(level: Int) {
+        self.level = level
+    }
+    
     func getTopRanks() -> [String]{
         let str = "level" + String(level)
         var strs : [String] = []

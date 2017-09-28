@@ -129,6 +129,7 @@ class GameBoard {
         var flagCount: Int = 0
         var flaggedMineCount: Int = 0
         var revealedTileCount: Int = 0
+        var score: Int = 0
         
         for c in 0..<self.columns {
             for r in 0..<self.rows {
@@ -155,7 +156,9 @@ class GameBoard {
             }
         }
         
+        score = flaggedMineCount * 200
         
-        return [mineCount, flagCount, flaggedMineCount, revealedTileCount]
+        
+        return [mineCount, flagCount, flaggedMineCount, revealedTileCount, score]
     }
 }
