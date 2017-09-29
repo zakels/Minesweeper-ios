@@ -75,7 +75,7 @@ class GameScene: SKScene {
             self.boardTextures = [SKTexture(imageNamed: "bombMaskLarge"), SKTexture(imageNamed: "flagMaskLarge")]
         }*/
  
-        self.boardTextures = [SKTexture(imageNamed: "bombMaskMedium"), SKTexture(imageNamed: "flagMaskMedium")]
+        self.boardTextures = [SKTexture(imageNamed: "mine"), SKTexture(imageNamed: "flag"), SKTexture(imageNamed: "tiles_notp"), SKTexture(imageNamed: "tiles_p")]
         
         //self.touchDownSound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/tapMellow.wav", Bundle.main.resourcePath!) as String))
         //self.touchUpSound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/tapMellow.wav", Bundle.main.resourcePath!) as String))
@@ -89,7 +89,8 @@ class GameScene: SKScene {
         self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize)
         
         //self.backgroundColor = UIColor(self.board.theme.getCurrentTheme().backgroundColor)
-        self.backgroundColor = UIColor.lightGray
+        //self.backgroundColor = UIColor.lightGray
+        self.backgroundColor = UIColor.black
         
         var xPosition: CGFloat = 0
         var yPosition: CGFloat = xPosition
@@ -104,12 +105,13 @@ class GameScene: SKScene {
                 let sprite = GameTileSprite(
                     forTile: self.board.tiles[y][x],
                     //gradient: self.board.theme.currentThemeGradient.cellGradients[y][x],
-                    
                     backgroundColor: self.backgroundColor,
                     //bombColor: UIColor(self.board.theme.getCurrentTheme().bombColor),
                     bombColor: UIColor.red,
                     bombTexture: self.boardTextures[0],
                     flagTexture: self.boardTextures[1],
+                    tileTexture: self.boardTextures[2],
+                    pushTexture: self.boardTextures[3],
                     tileSize: CGSize(width: ceil(self.board.tileSize), height: ceil(self.board.tileSize)),
                     tilePosition: CGPoint(x: xPosition + self.board.tileSize/2, y: yPosition + self.board.tileSize/2)
                 )
@@ -169,6 +171,8 @@ class GameScene: SKScene {
                     bombColor: UIColor.red,
                     bombTexture: self.boardTextures[0],
                     flagTexture: self.boardTextures[1],
+                    tileTexture: self.boardTextures[2],
+                    pushTexture: self.boardTextures[3],
                     tileSize: CGSize(width: ceil(self.board.tileSize), height: ceil(self.board.tileSize)),
                     tilePosition: CGPoint(x: xPosition + self.board.tileSize/2, y: yPosition + self.board.tileSize/2)
                 )

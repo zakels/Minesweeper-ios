@@ -158,7 +158,7 @@ class GameBoard {
         
         score = flaggedMineCount * 200
         
-        
+
         return [mineCount, flagCount, flaggedMineCount, revealedTileCount, score]
     }
 }

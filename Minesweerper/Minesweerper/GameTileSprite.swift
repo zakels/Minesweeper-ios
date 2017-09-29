@@ -19,34 +19,45 @@ class GameTileSprite: SKSpriteNode {
     var textSprite: SKLabelNode!
     var flagSprite: SKSpriteNode!
     var bombSprite: SKSpriteNode!
+    var tileSprite: SKSpriteNode!
     
-    init(forTile tile: GameTile, backgroundColor: UIColor!, bombColor: UIColor!, bombTexture: SKTexture!, flagTexture: SKTexture!, tileSize size: CGSize!, tilePosition position: CGPoint) {
+    init(forTile tile: GameTile, backgroundColor: UIColor!, bombColor: UIColor!, bombTexture: SKTexture!, flagTexture: SKTexture!, tileTexture: SKTexture!, pushTexture: SKTexture!, tileSize size: CGSize!, tilePosition position: CGPoint) {
         
         super.init(texture: nil, color: UIColor.clear, size: size)
         
         self.tile = tile
+        //self.tileSprite = SKSpriteNode(texture: tileTexture)
+        //self.addChild(self.tileSprite)
         
         //self.gradientLayer = gradient
         
         self.size = size
         self.position = position
         
-        self.gradientSprite = SKSpriteNode(texture: SKTexture(cgImage: self.createImageFromGradient(size, withLayer: self.gradientLayer, withMask: nil)), color: UIColor.clear, size: size)
+        /*self.gradientSprite = SKSpriteNode(texture: SKTexture(cgImage: self.createImageFromGradient(size, withLayer: self.gradientLayer, withMask: nil)), color: UIColor.clear, size: size)
         self.gradientSprite.isUserInteractionEnabled = false
         
         self.addChild(self.gradientSprite)
-        
+        */
         if self.tile.numNeighboringMines > 0 && !self.tile.isMineLocation {
             
             self.textSprite = self.createTextSprite()
-            self.addChild(self.textSprite)
+            let background = SKSpriteNode(texture: pushTexture, size: self.size)
+            background.position = CGPoint(x: CGFloat(-1), y: CGFloat(7))
+            background.zPosition = -1
+            textSprite.addChild(background)
+            self.addChild(textSprite)
         }
+        
+        //self.tileSprite = self.createTileSpriteWithTexture(tileTexture, backgroundColor: backgroundColor, tileColor: bombColor)
+        //self.addChild(self.tileSprite)
         
         self.bombSprite = self.createBombSpriteWithTexture(bombTexture, backgroundColor: backgroundColor, bombColor: bombColor)
         self.addChild(self.bombSprite)
         
         self.flagSprite = self.createFlagSpriteWithTexture(flagTexture, backgroundColor: backgroundColor, flagColor: bombColor)
         self.addChild(self.flagSprite)
+        
         
     }
     
@@ -75,6 +86,7 @@ class GameTileSprite: SKSpriteNode {
         label.fontName = "AvenirNext-Bold"
         label.isUserInteractionEnabled = false
         label.position = labelPosition
+        
         
         /*if let colors = self.gradientLayer.colors {
             label.fontColor = UIColor(cgColor: colors[0] as! CGColor)
@@ -124,6 +136,25 @@ class GameTileSprite: SKSpriteNode {
         
         return flagBackground
     }
+    
+    /*func createTileSpriteWithTexture(_ texture: SKTexture!, backgroundColor: UIColor!, tileColor: UIColor!) -> SKSpriteNode {
+        let tileLayer = CALayer()
+        tileLayer.frame.size = self.size
+        tileLayer.backgroundColor = tileColor.cgColor
+        
+        let tileBackground = SKSpriteNode(texture: SKTexture(cgImage: self.createImageFromGradient(self.size, withLayer: tileLayer, withMask: nil)), color: tileColor, size: self.size)
+        tileBackground.position = CGPoint(x: 0, y: 0)
+        tileBackground.alpha = 0.0
+        tileBackground.zPosition = 1.0
+        
+        let tileSprite = SKSpriteNode(texture: texture, color: tileColor, size: self.size)
+        tileSprite.alpha = 1.0
+        tileSprite.zPosition = 1.0
+        
+        tileBackground.addChild(tileSprite)
+        
+        return tileBackground
+    }*/
     
     func createImageFromGradient(_ size: CGSize!, withLayer layer:CALayer!, withMask mask:UIImage?) -> CGImage {
         
@@ -189,7 +220,7 @@ class GameTileSprite: SKSpriteNode {
             
             let alphaAnimation = SKAction.fadeAlpha(to: fadeAlphaTo, duration: 0.15)
             let delayAnimation = SKAction.wait(forDuration: duration)
-            self.gradientSprite.run(SKAction.sequence([delayAnimation, alphaAnimation]))
+            //self.gradientSprite.run(SKAction.sequence([delayAnimation, alphaAnimation]))
             
             if self.textSprite != nil && !self.tile.isFlagged {
                 self.textSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 1.0, duration: 0.15)]))
@@ -207,8 +238,8 @@ class GameTileSprite: SKSpriteNode {
             
             let alphaAnimation = SKAction.fadeAlpha(to: 1.0, duration: 0.1)
             let delayAnimation = SKAction.wait(forDuration: duration)
-            let textureAnimation = SKAction.animate(with: [SKTexture(cgImage: self.createImageFromGradient(self.gradientSprite.size, withLayer: self.gradientLayer, withMask: nil))], timePerFrame: 0.1)
-            self.gradientSprite.run(SKAction.sequence([delayAnimation, textureAnimation, alphaAnimation]))
+            //let textureAnimation = SKAction.animate(with: [SKTexture(cgImage: self.createImageFromGradient(self.gradientSprite.size, withLayer: self.gradientLayer, withMask: nil))], timePerFrame: 0.1)
+            //self.gradientSprite.run(SKAction.sequence([delayAnimation, textureAnimation, alphaAnimation]))
             
             if let flagSprite = self.flagSprite {
                 flagSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 0.0, duration: 0.1)]))
