@@ -17,7 +17,10 @@ public class userRecord {
     var userName : String = ""
     var level : Int = 0
     var size : Int = 0
-    var levelStr : String = ""
+    
+    var Users : [String] = []
+    var Points : [Int] = []
+    
     
     init(level: Int, points: Int) {
         self.uid = (Auth.auth().currentUser?.uid)!
@@ -32,40 +35,30 @@ public class userRecord {
         
         self.level = level
         self.points = points
-        
-        self.levelStr = "Level" + String(self.level)
+        self.size = 0
         
     }
     
     func creatRecord(){
-       
-        let ref = Database.database().reference().child("Records").child(self.levelStr)
-        
-        getSize(){ () -> () in
-            print("TEST:")
-            print(size)
-            
-            let rankStr : String = "Record" + String(size + 1)
-            let recordRef = ref.child(rankStr)
-            
-            
-            recordRef.setValue(["user": self.uid, "points": self.points])
-        }
-        
+        let ref = Database.database().reference(withPath: "Records").child("Level"+String(self.level))
+        ref.childByAutoId().setValue(["user": self.uid, "scores": self.points])
     }
     
-    func getSize(handleComplete:(()->())){
-        let ref = Database.database().reference().child("Records").child(self.levelStr)
+    func getSize() -> Int{
+
+        var count : Int = 0
         
-        print(ref)
-        
-        ref.observe(.value, with: { snapshot in
-            if snapshot.exists(){
-                self.size = Int(snapshot.childrenCount.description)!
-                print(self.size)
-            }
-            
+        let ref = Database.database().reference(withPath: "Records")
+        ref.observe(.value, with: { (snapshot: DataSnapshot!) in
+            count = Int(snapshot.childrenCount.description)!
         })
-        handleComplete()
+        
+        return count
+    }
+    
+    func compTop(){
+
+        
+        
     }
 }

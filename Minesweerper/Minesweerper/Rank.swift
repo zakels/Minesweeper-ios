@@ -10,7 +10,13 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
+public struct rank {
+    var user : String
+    var score : Int
+}
+
 public class Rank {
+    
     
     var level : Int = 0
     
@@ -22,31 +28,22 @@ public class Rank {
         self.level = level
     }
     
-    func getTopRanks() -> [String]{
-        let str = "level" + String(level)
-        var strs : [String] = []
-        var ref : DatabaseReference!
-        ref = Database.database().reference().child("Ranks").child(str)
-        let query = ref.queryOrdered(byChild: "points").queryLimited(toLast: 5)
-        
-        query.observeSingleEvent(of: .value, with: { (snapshot) in
+    func getTopRanks() -> [rank]{
+
+        var ranks = [rank]()
+        let ref = Database.database().reference(withPath: "Records").child("Level"+String(self.level))
+        let tmp = ref.queryOrdered(byChild: "scores").queryLimited(toLast: 5)
+        print(tmp)
+        ref.queryOrdered(byChild: "scores").queryLimited(toLast: 5).observeSingleEvent(of: .childAdded, with: { snapshot in
             let dictionary = snapshot.value as? [String: AnyObject]
-            print(dictionary ?? "DICTIONARY ERROR")
-            let uid = dictionary?["uid"]
-            var userName : String = ""
-            let userRef = Database.database().reference().child("Users").child(uid as! String)
-            userRef.observeSingleEvent(of: .value, with: {(snap) in
-                let dict = snap.value as? [String: AnyObject]
-                userName = (dict?["username"])! as! String
-            })
+            let user = (dictionary?["user"] as? String)!
+            let score = (dictionary?["scores"] as? Int)!
+            let r = rank(user: user, score: score)
             
-            let points = dictionary?["points"]
-            strs.append(userName + String(describing: points))
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+            ranks.append(r)
+        })
         
-        return strs
+        return ranks
     }
     
 }
