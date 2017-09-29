@@ -23,9 +23,10 @@ class GameTileSprite: SKSpriteNode {
     
     init(forTile tile: GameTile, backgroundColor: UIColor!, bombColor: UIColor!, bombTexture: SKTexture!, flagTexture: SKTexture!, tileTexture: SKTexture!, pushTexture: SKTexture!, tileSize size: CGSize!, tilePosition position: CGPoint) {
         
-        super.init(texture: nil, color: UIColor.clear, size: size)
+        super.init(texture: tileTexture, color: UIColor.clear, size: size)
         
         self.tile = tile
+        
         //self.tileSprite = SKSpriteNode(texture: tileTexture)
         //self.addChild(self.tileSprite)
         
@@ -40,11 +41,11 @@ class GameTileSprite: SKSpriteNode {
         self.addChild(self.gradientSprite)
         */
         if self.tile.numNeighboringMines > 0 && !self.tile.isMineLocation {
-            
             self.textSprite = self.createTextSprite()
             let background = SKSpriteNode(texture: pushTexture, size: self.size)
             background.position = CGPoint(x: CGFloat(-1), y: CGFloat(7))
-            background.zPosition = -1
+            background.zPosition = 0
+            textSprite.zPosition = 1
             textSprite.addChild(background)
             self.addChild(textSprite)
         }
@@ -86,6 +87,7 @@ class GameTileSprite: SKSpriteNode {
         label.fontName = "AvenirNext-Bold"
         label.isUserInteractionEnabled = false
         label.position = labelPosition
+        label.zPosition = 1
         
         
         /*if let colors = self.gradientLayer.colors {
@@ -214,6 +216,7 @@ class GameTileSprite: SKSpriteNode {
                     fadeAlphaTo = 0.4
                 } else {
                     fadeAlphaTo = 0.05
+                    texture = SKTexture(imageNamed: "tiles_p")
                 }
                 
             }
