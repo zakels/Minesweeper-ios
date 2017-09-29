@@ -16,6 +16,8 @@ public class userRecord {
     var points : Int = 0
     var userName : String = ""
     var level : Int = 0
+    var size : Int = 0
+    var levelStr : String = ""
     
     init(level: Int, points: Int) {
         self.uid = (Auth.auth().currentUser?.uid)!
@@ -25,27 +27,45 @@ public class userRecord {
             self.userName = (dictionary?["username"] as? String)!
             
         }) { (error) in
-                print(error.localizedDescription)
+            print(error.localizedDescription)
+        }
+        
+        self.level = level
+        self.points = points
+        
+        self.levelStr = "Level" + String(self.level)
+        
+    }
+    
+    func creatRecord(){
+       
+        let ref = Database.database().reference().child("Records").child(self.levelStr)
+        
+        getSize(){ () -> () in
+            print("TEST:")
+            print(size)
+            
+            let rankStr : String = "Record" + String(size + 1)
+            let recordRef = ref.child(rankStr)
+            
+            
+            recordRef.setValue(["user": self.uid, "points": self.points])
         }
         
     }
     
-    func creatRecord(record: userRecord){
-        var size : Int = 0
+    func getSize(handleComplete:(()->())){
+        let ref = Database.database().reference().child("Records").child(self.levelStr)
         
-        let level = "Level" + String(record.level)
-        let ref = Database.database().reference().child("Ranks").child(level)
+        print(ref)
+        
         ref.observe(.value, with: { snapshot in
-            for _ in snapshot.children{
-                size += 1
+            if snapshot.exists(){
+                self.size = Int(snapshot.childrenCount.description)!
+                print(self.size)
             }
+            
         })
-        
-        let rankStr : String = "Rank" + String(size + 1)
-        let recordRef = ref.child(rankStr)
-        recordRef.setValue(["uid": record.uid])
-        recordRef.setValue(["points": record.points])
-        
+        handleComplete()
     }
-    
 }

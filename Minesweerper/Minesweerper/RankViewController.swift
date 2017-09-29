@@ -49,6 +49,7 @@ class RankViewController: UIViewController {
     override func viewDidLoad() {
         loadRanks()
     }
+    
     func loadRanks() {
         //ranks = rank.getTopRanks()
         RankOne.text = ranks[0]
@@ -57,4 +58,5 @@ class RankViewController: UIViewController {
         RankFour.text = ranks[3]
         RankFive.text = ranks[4]
     }
+    
 }

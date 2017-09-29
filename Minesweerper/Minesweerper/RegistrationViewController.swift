@@ -16,11 +16,20 @@ import FirebaseAuth
 
 
 class RegistrationViewController: UIViewController, UITextFieldDelegate {
-
+    
     var email : String = ""
     var userName : String = ""
     var passWord : String = ""
     var repeatPassword : String = ""
+    
+    
+    @IBOutlet weak var emailImage: UIImageView!
+    
+    @IBOutlet weak var userNameImage: UIImageView!
+    
+    @IBOutlet weak var passwordImage: UIImageView!
+    
+    @IBOutlet weak var repeatImage: UIImageView!
     
     @IBOutlet weak var emailRegistor: UITextField!
     @IBOutlet weak var emailMessage: UILabel!
@@ -81,7 +90,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-    
+        
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
@@ -93,20 +102,24 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         if email == ""{
             emailMessage.textColor = UIColor.red
-            emailMessage.text = "Email should not be empty!"
+            emailMessage.text = "Should not be empty!"
+            emailImage.image = UIImage(named: "wrong.png")
         }
-        
-        //Check if email is valid
+            
+            //Check if email is valid
         else if !isValidEmail(testStr: email){
             emailMessage.textColor = UIColor.red
-            emailMessage.text = "Please input a valid email"
+            emailMessage.text = "Invalid email"
+            emailImage.image = UIImage(named: "wrong.png")
         }
-        
+            
         else{
             emailMessage.text = ""
+            emailImage.image = UIImage(named: "correct.png")
             result = true
         }
-       
+        
+        emailMessage.sizeToFit()
         return result
     }
     
@@ -117,24 +130,30 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         //Check if user name is empty
         if userName == ""{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "UserName should not be empty!"
+            userNameMessage.text = "Should not be empty!"
+            userNameImage.image = UIImage(named: "wrong.png")
         }
-        
-        //Check length of user name
+            
+            //Check length of user name
         else if userName.characters.count < 4{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "User name should be at least 4 characters"
+            userNameMessage.text = "At least 4 characters"
+            userNameImage.image = UIImage(named: "wrong.png")
         }
-        
+            
         else if userName.characters.count > 15{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "User name should be no longer than 15 characters"
+            userNameMessage.text = "No longer than 15 characters"
+            userNameImage.image = UIImage(named: "wrong.png")
         }
-
+            
         else {
             result = true
             userNameMessage.text = ""
+            userNameImage.image = UIImage(named: "correct.png")
+            
         }
+        userNameMessage.sizeToFit()
         
         return result
     }
@@ -145,40 +164,54 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         //Check if passWord is empty
         if passWord == "" {
             passwordMessage.textColor = UIColor.red
-            passwordMessage.text = "Password should not be empty!"
+            passwordMessage.text = "Should not be empty!"
+            passwordImage.image = UIImage(named: "wrong.png")
         }
-        
-        //Check length of passWord
+            
+            //Check length of passWord
         else if passWord.characters.count < 6{
             passwordMessage.textColor = UIColor.red
-            passwordMessage.text = "Password should be at least 6 characters"
+            passwordMessage.text = "At least 6 characters"
+            passwordImage.image = UIImage(named: "wrong.png")
         }
-        
+            
         else if passWord.characters.count > 16{
             passwordMessage.textColor = UIColor.red
-            passwordMessage.text = "Password should be no longer than 16 characters"
+            passwordMessage.text = "No longer than 16 characters"
+            passwordImage.image = UIImage(named: "wrong.png")
         }
-        
+            
         else {
             passwordMessage.text = ""
             result = true
+            passwordImage.image = UIImage(named: "correct.png")
         }
         
+        passwordMessage.sizeToFit()
         return result
         
     }
     
     func repeatCheck() -> Bool {
-        if passWord == repeatPassword {
+        var result : Bool = false
+        if repeatPassword == ""{
+            repeatMessage.text = "Should not be empty!"
+            repeatImage.image = UIImage(named: "wrong.png")
+        }
+        else if passWord == repeatPassword {
             repeatMessage.text = ""
-            return true
+            repeatImage.image = UIImage(named: "correct.png")
+            result = true
+        }
+            
+        else{
+            repeatMessage.text = "Not match with password"
+            repeatImage.image = UIImage(named: "wrong.png")
         }
         
-        else{
-            repeatMessage.textColor = UIColor.red
-            repeatMessage.text = "Not match with password"
-            return false
-        }
+        repeatMessage.textColor = UIColor.red
+        repeatMessage.sizeToFit()
+        return result
     }
     
     
