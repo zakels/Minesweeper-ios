@@ -19,23 +19,6 @@ protocol GameSceneDelegate {
     
 }
 
-extension SKScene {
-    
-    func resizeToFitChildNodes() {
-        var width: CGFloat = 0
-        var height: CGFloat = 0
-        for someSprite in self.children {
-            let shapeNode = someSprite
-            let newWidth = shapeNode.frame.origin.x + shapeNode.frame.width
-            let newHeight = shapeNode.frame.origin.y + shapeNode.frame.height
-            width = max(width, newWidth)
-            height = max(height, newHeight)
-        }
-        
-        size = CGSize(width: width, height: height)
-    }
-    
-}
 
 class GameScene: SKScene {
     
@@ -43,10 +26,6 @@ class GameScene: SKScene {
     var board: GameBoard!
     var boardTextures: [SKTexture]!
     var boardSprites: [[GameTileSprite]] = []
-    
-    var touchDownSound: AVAudioPlayer!
-    var touchUpSound: AVAudioPlayer!
-    var bombExplodeSound: AVAudioPlayer!
     
     var lastTouchedSprite: GameTileSprite!
     var longPressTimer: Timer!
@@ -63,37 +42,23 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        //let isSmallDevice = Device().isOneOf([.iPodTouch5, .iPodTouch5, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE, .simulator(.iPodTouch5), .simulator(.iPodTouch5), .simulator(.iPhone4), .simulator(.iPhone4s), .simulator(.iPhone5), .simulator(.iPhone5c), .simulator(.iPhone5s), .simulator(.iPhoneSE)]) || Device().isPad
-        //let isMediumDevice = Device().isOneOf([.iPhone6, .iPhone6s, .iPhone7, .simulator(.iPhone6), .simulator(.iPhone6s), .simulator(.iPhone7)])
-        //let isLargeDevice = Device().isOneOf([.iPhone6Plus, .iPhone6sPlus, .iPhone7Plus, .simulator(.iPhone6Plus), .simulator(.iPhone6sPlus), .simulator(.iPhone7Plus)])
-        
-        /*if isSmallDevice {
-            self.boardTextures = [SKTexture(imageNamed: "bombMaskSmall"), SKTexture(imageNamed: "flagMaskSmall")]
-        } else if isMediumDevice {
-            self.boardTextures = [SKTexture(imageNamed: "bombMaskMedium"), SKTexture(imageNamed: "flagMaskMedium")]
-        } else if isLargeDevice {
-            self.boardTextures = [SKTexture(imageNamed: "bombMaskLarge"), SKTexture(imageNamed: "flagMaskLarge")]
-        }*/
- 
+       
         self.boardTextures = [SKTexture(imageNamed: "mine"), SKTexture(imageNamed: "flag"), SKTexture(imageNamed: "tiles_notp"), SKTexture(imageNamed: "tiles_p")]
-        
-        //self.touchDownSound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/tapMellow.wav", Bundle.main.resourcePath!) as String))
-        //self.touchUpSound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/tapMellow.wav", Bundle.main.resourcePath!) as String))
-        
-        //self.bombExplodeSound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/tapMellowUp.wav", Bundle.main.resourcePath!) as String))
-        
-        // Setup Model
+        print(self.view!.frame.size.width)
+       /* let rows: Int = 10
+        let squareSize: CGFloat = 50
+        let columns: Int = 10
+        self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize)
+ */
         let rows: Int = 8
         let squareSize = (self.view!.frame.size.width - CGFloat(rows)) / CGFloat(rows)
-        let columns = Int((self.view!.frame.size.height - CGFloat(rows)) / squareSize)
+        let columns = Int((self.view!.frame.size.height - 100 - CGFloat(rows)) / squareSize)
         self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize)
-        
-        //self.backgroundColor = UIColor(self.board.theme.getCurrentTheme().backgroundColor)
-        //self.backgroundColor = UIColor.lightGray
+       
         self.backgroundColor = UIColor.black
         
         var xPosition: CGFloat = 0
-        var yPosition: CGFloat = xPosition
+        var yPosition: CGFloat = 100
         
         // Setup Sprites
         for y in 0..<self.board.tiles.count {
@@ -104,9 +69,7 @@ class GameScene: SKScene {
                 
                 let sprite = GameTileSprite(
                     forTile: self.board.tiles[y][x],
-                    //gradient: self.board.theme.currentThemeGradient.cellGradients[y][x],
                     backgroundColor: self.backgroundColor,
-                    //bombColor: UIColor(self.board.theme.getCurrentTheme().bombColor),
                     bombColor: UIColor.red,
                     bombTexture: self.boardTextures[0],
                     flagTexture: self.boardTextures[1],
@@ -130,7 +93,7 @@ class GameScene: SKScene {
         }
         
         // Resize Scene
-        self.resizeToFitChildNodes()
+    //    self.resizeToFitChildNodes()
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -138,9 +101,6 @@ class GameScene: SKScene {
             
         }
         
-        //self.touchDownSound!.prepareToPlay()
-        //self.touchUpSound!.prepareToPlay()
-        //self.bombExplodeSound!.prepareToPlay()
         
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
         
@@ -151,7 +111,7 @@ class GameScene: SKScene {
     
     func reloadSprites() {
         var xPosition: CGFloat = 0
-        var yPosition: CGFloat = xPosition
+        var yPosition: CGFloat = 100
         
         self.boardSprites = []
         self.removeAllChildren()

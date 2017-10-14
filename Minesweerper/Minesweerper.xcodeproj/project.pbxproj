@@ -39,8 +39,6 @@
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
 		FD15DC4F1F74B060006615FD /* UserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC4E1F74B060006615FD /* UserRecord.swift */; };
 		FD15DC511F7C7D4D006615FD /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15DC501F7C7D4D006615FD /* RankViewController.swift */; };
-		FD15DC5A1F7DD5AE006615FD /* correct.png in Resources */ = {isa = PBXBuildFile; fileRef = FD15DC591F7DD5AE006615FD /* correct.png */; };
-		FD15DC5C1F7DD5B2006615FD /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = FD15DC5B1F7DD5B2006615FD /* wrong.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +103,6 @@
 		F94D14B3EBA91B2BEBC28B6E /* Pods-Minesweerper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.release.xcconfig"; sourceTree = "<group>"; };
 		FD15DC4E1F74B060006615FD /* UserRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecord.swift; sourceTree = "<group>"; };
 		FD15DC501F7C7D4D006615FD /* RankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
-		FD15DC591F7DD5AE006615FD /* correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = correct.png; path = ../../../correct.png; sourceTree = "<group>"; };
-		FD15DC5B1F7DD5B2006615FD /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wrong.png; path = ../../../wrong.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +141,6 @@
 				014EA28D1F6E0A340017EAA2 /* profile.png */,
 				014EA2911F6E0A460017EAA2 /* mine.png */,
 				014EA28F1F6E0A3F0017EAA2 /* rank.png */,
-				FD15DC591F7DD5AE006615FD /* correct.png */,
-				FD15DC5B1F7DD5B2006615FD /* wrong.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -364,7 +358,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD15DC5A1F7DD5AE006615FD /* correct.png in Resources */,
 				01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */,
 				01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */,
 				01374E281F7455B1000DDDF5 /* Coins.png in Resources */,
@@ -374,7 +367,6 @@
 				014EA2921F6E0A460017EAA2 /* mine.png in Resources */,
 				01AF71BB1F6217B500010A92 /* Main.storyboard in Resources */,
 				014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */,
-				FD15DC5C1F7DD5B2006615FD /* wrong.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RT54894CX2;
 				INFOPLIST_FILE = Minesweerper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kris.Minesweerper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -747,6 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RT54894CX2;
 				INFOPLIST_FILE = Minesweerper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kris.Minesweerper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -793,6 +787,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RT54894CX2;
 				INFOPLIST_FILE = MinesweerperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kris.MinesweerperUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -808,6 +803,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = RT54894CX2;
 				INFOPLIST_FILE = MinesweerperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kris.MinesweerperUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
