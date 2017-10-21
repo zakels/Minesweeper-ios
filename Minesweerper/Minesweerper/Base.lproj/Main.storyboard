@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -144,7 +144,7 @@
                         <viewControllerLayoutGuide type="top" id="9xm-55-ffr"/>
                         <viewControllerLayoutGuide type="bottom" id="wlu-N9-hED"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="l0n-Es-y7a">
+                    <view key="view" contentMode="scaleToFill" semanticContentAttribute="playback" id="l0n-Es-y7a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -236,7 +236,7 @@
                         <viewControllerLayoutGuide type="top" id="zuK-8w-D0J"/>
                         <viewControllerLayoutGuide type="bottom" id="HB9-OZ-0sO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QeX-RA-9S5">
+                    <view key="view" contentMode="scaleToFill" semanticContentAttribute="playback" id="QeX-RA-9S5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bI-m0-QTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-1709"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="-1701.4992503748126"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="B5O-r7-Jvl">
@@ -661,7 +661,7 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pYy-Ar-4Gj"/>
         <segue reference="SKp-3k-uzQ"/>
-        <segue reference="t1H-B5-jM0"/>
     </inferredMetricsTieBreakers>
 </document>

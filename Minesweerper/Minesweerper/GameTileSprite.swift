@@ -19,6 +19,7 @@ class GameTileSprite: SKSpriteNode {
     var bombSprite: SKSpriteNode!
     var tileSprite: SKSpriteNode!
     var pushSprite: SKSpriteNode!
+  
     
     init(forTile tile: GameTile, backgroundColor: UIColor!, bombColor: UIColor!, bombTexture: SKTexture!, flagTexture: SKTexture!, tileTexture: SKTexture!, pushTexture: SKTexture!, tileSize size: CGSize!, tilePosition position: CGPoint) {
         
@@ -51,6 +52,7 @@ class GameTileSprite: SKSpriteNode {
         self.flagSprite = self.createFlagSpriteWithTexture(flagTexture, backgroundColor: backgroundColor, flagColor: bombColor)
         self.addChild(self.flagSprite)
         
+              
         
     }
     

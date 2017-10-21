@@ -15,7 +15,9 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
     
     var gameScene: GameScene!
     
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -33,6 +35,7 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
             skView.ignoresSiblingOrder = true
             skView.presentScene(self.gameScene)
         }
+        
     }
     
     override var shouldAutorotate : Bool {
@@ -59,6 +62,8 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
     override var canBecomeFirstResponder : Bool {
         return true
     }
+    
+   
     
     // SMGameSceneDelegate
     
