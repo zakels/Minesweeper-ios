@@ -13,17 +13,17 @@ class GameBoard {
     let rows:Int
     let columns:Int
     let tileSize:CGFloat
-    
+    var mines:Int
     //let theme: SMThemeController
     
     var tiles:[[GameTile]] = []
     
-    init(numberOfRows rows:Int, numberOfColumns columns:Int, tileSize size:CGFloat) {
+    init(numberOfRows rows:Int, numberOfColumns columns:Int, tileSize size:CGFloat, numberMine mines:Int) {
         
         self.rows = rows
         self.columns = columns
         self.tileSize = size
-        
+        self.mines = mines
         //self.theme = SMThemeController(initialTheme: "Royal", numberOfRows: self.rows, numberOfColumns: self.columns)
         
         // create tile data model for each cell
@@ -44,16 +44,23 @@ class GameBoard {
     }
     
     func resetBoard() {
-        
+        var temp: Int =  self.mines
         // assign mines to tiles
         for c in 0..<self.columns {
             for r in 0..<self.rows {
                 self.tiles[c][r].isRevealed = false
                 self.tiles[c][r].isFlagged = false
-                self.calculateIsMineLocationForTile(tiles[c][r])
+                self.tiles[c][r].isMineLocation = false
             }
         }
-        
+        while temp > 0 {
+            let r = Int(arc4random_uniform(UInt32(self.rows)))
+            let c = Int(arc4random_uniform(UInt32(self.columns)))
+            if !self.tiles[c][r].isMineLocation {
+                self.tiles[c][r].isMineLocation = true
+                temp = temp - 1
+            }
+        }
         // count number of neighboring tiles
         for c in 0..<self.columns {
             for r in 0..<self.rows {
@@ -63,10 +70,6 @@ class GameBoard {
         
     }
     
-    // algorithm for deciding whether object will contain a mine
-    func calculateIsMineLocationForTile(_ tile: GameTile) {
-        tile.isMineLocation = (arc4random_uniform(10) == 0) // 1-in-7 chance that each location contains a mine
-    }
     
     // how many cell adjacent to this one contain a mine
     func calculateNumNeighborMinesForTile(_ tile : GameTile) {

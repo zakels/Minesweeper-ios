@@ -128,26 +128,9 @@ class GameTileSprite: SKSpriteNode {
         
        
         if self.tile.isRevealed {
-            var fadeAlphaTo: CGFloat = 1.0
-            
             if self.tile.isRevealed {
-                
-                if !self.tile.isFlagged {
-                    
-                    if self.tile.numNeighboringMines == 1 {
-                        fadeAlphaTo = 0.18
-                    } else if self.tile.numNeighboringMines == 2 {
-                        fadeAlphaTo = 0.28
-                    } else if self.tile.numNeighboringMines >= 3 {
-                        fadeAlphaTo = 0.4
-                    } else {
-                        fadeAlphaTo = 0.05
-                    }
-                    
-                }
-                
               
-            let alphaAnimation = SKAction.fadeAlpha(to: fadeAlphaTo, duration: 0.15)
+            let alphaAnimation = SKAction.fadeAlpha(to: 0, duration: 0.15)
             let delayAnimation = SKAction.wait(forDuration: duration)
             self.tileSprite.run(SKAction.sequence([delayAnimation,alphaAnimation]))
 
@@ -155,8 +138,8 @@ class GameTileSprite: SKSpriteNode {
                 self.textSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 1.0, duration: 0.15)]))
             } else if self.tile.isFlagged {
                 
-                if let flagSprite = self.flagSprite {
-                    flagSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 1.0, duration: 0.15)]))
+                if self.flagSprite != nil{
+                   self.flagSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 1.0, duration: 0.15)]))
             }
                 
             } else if self.tile.isMineLocation {

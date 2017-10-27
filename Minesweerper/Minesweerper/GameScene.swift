@@ -41,8 +41,9 @@ class GameScene: SKScene {
     var resumeSprite: SKLabelNode!
     var flagPSprite: SKLabelNode!
     var timePSprite: SKLabelNode!
+    var time: Int = 10
     
-    
+    var flagCount: Int = 10
     override func willMove(from view: SKView) {
         SKTexture.preload(self.boardTextures, withCompletionHandler: {
         })
@@ -51,42 +52,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.boardSprites = []
         self.removeAllChildren()
-        scoreLabel = SKLabelNode(text: "Money: 0")
-        scoreLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(30))
-        scoreLabel.horizontalAlignmentMode = .left
-        self.addChild(self.scoreLabel)
-        
-        timeLabel = SKLabelNode(text: "00:00:00")
-        timeLabel.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(30))
-        timeLabel.horizontalAlignmentMode = .right
-        //timeLabel.startWithDuration(200)
-        self.addChild(self.timeLabel)
-        
-        falgLabel = SKLabelNode(text: "falg: 0")
-        falgLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(50))
-        falgLabel.horizontalAlignmentMode = .left
-        self.addChild(self.falgLabel)
-        
-        pauseSprite = SKLabelNode(text: "Pause")
-        pauseSprite.position = CGPoint(x:self.view!.frame.midX, y: self.view!.frame.maxY-CGFloat(30))
-        pauseSprite.horizontalAlignmentMode = .center
-        self.addChild(self.pauseSprite)
-        
-        resumeSprite = SKLabelNode(text: "Resume")
-        resumeSprite.position = CGPoint(x:self.view!.frame.midX, y: self.view!.frame.maxY-CGFloat(50))
-        resumeSprite.horizontalAlignmentMode = .center
-        self.addChild(self.resumeSprite)
-        
-        flagPSprite = SKLabelNode(text: "flag+1")
-        flagPSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(50))
-        flagPSprite.horizontalAlignmentMode = .right
-        self.addChild(self.flagPSprite)
-        
-        timePSprite = SKLabelNode(text: "Time*1.5")
-        timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
-        timePSprite.horizontalAlignmentMode = .right
-        self.addChild(self.timePSprite)
-        
 
        
         self.boardTextures = [SKTexture(imageNamed: "mine"), SKTexture(imageNamed: "flag"), SKTexture(imageNamed: "tiles_notp"), SKTexture(imageNamed: "tiles_p")]
@@ -94,54 +59,12 @@ class GameScene: SKScene {
         let rows: Int = 8
         let squareSize = (self.view!.frame.size.width - CGFloat(rows)) / CGFloat(rows)
         let columns = Int((self.view!.frame.size.height - CGFloat(rows+50)) / squareSize)
-        self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize)
-       
+  
+        self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize, numberMine:flagCount)
         self.backgroundColor = UIColor.black
         
-        var xPosition: CGFloat = 0
-        var yPosition: CGFloat = 0
-        
-        // Setup Sprites
-        for y in 0..<self.board.tiles.count {
-            
-            var boardSpriteRow: [GameTileSprite] = []
-            
-           
+        self.setup()
 
-            for x in 0..<self.board.tiles[y].count {
-                
-                let sprite = GameTileSprite(
-                    forTile: self.board.tiles[y][x],
-                    backgroundColor: self.backgroundColor,
-                    bombColor: UIColor.red,
-                    bombTexture: self.boardTextures[0],
-                    flagTexture: self.boardTextures[1],
-                    tileTexture: self.boardTextures[2],
-                    pushTexture: self.boardTextures[3],
-                    tileSize: CGSize(width: ceil(self.board.tileSize), height: ceil(self.board.tileSize)),
-                    tilePosition: CGPoint(x: xPosition + self.board.tileSize/2, y: yPosition + self.board.tileSize/2)
-                )
-                
-                self.addChild(sprite)
-                
-                boardSpriteRow.append(sprite)
-                
-                xPosition += self.board.tileSize
-            }
-            
-            xPosition = 0
-            yPosition += self.board.tileSize
-            
-            self.boardSprites.append(boardSpriteRow)
-        }
-        
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-        } catch {
-            
-        }
-        
         
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
         
@@ -150,11 +73,19 @@ class GameScene: SKScene {
     
     
     func reloadSprites() {
-        var xPosition: CGFloat = 0
-        var yPosition: CGFloat = 0
         
         self.boardSprites = []
         self.removeAllChildren()
+        
+        self.board.resetBoard()
+        self.setup()
+        
+        self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
+        self.gameTime = 0
+    }
+    
+    func setup () {
+        flagCount = 10
         scoreLabel = SKLabelNode(text: "Money: 0")
         scoreLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(30))
         scoreLabel.horizontalAlignmentMode = .left
@@ -163,10 +94,10 @@ class GameScene: SKScene {
         timeLabel = SKLabelNode(text: "00:00:00")
         timeLabel.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(30))
         timeLabel.horizontalAlignmentMode = .right
-        //timeLabel.startWithDuration(200)
         self.addChild(self.timeLabel)
         
-        falgLabel = SKLabelNode(text: "falg: 0")
+        
+        falgLabel = SKLabelNode(text: "Flag: \(flagCount)")
         falgLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(50))
         falgLabel.horizontalAlignmentMode = .left
         self.addChild(self.falgLabel)
@@ -191,11 +122,12 @@ class GameScene: SKScene {
         timePSprite.horizontalAlignmentMode = .right
         self.addChild(self.timePSprite)
         
+        var xPosition: CGFloat = 0
+        var yPosition: CGFloat = 0
 
         for y in 0..<self.board.tiles.count {
             
             var boardSpriteRow: [GameTileSprite] = []
-            
             
             
             for x in 0..<self.board.tiles[y].count {
@@ -232,10 +164,10 @@ class GameScene: SKScene {
             
         }
 
-        self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
-        self.gameTime = 0
-    }
+        
+        
     
+    }
     func resetBoard() {
         
         self.board.resetBoard()
@@ -253,24 +185,47 @@ class GameScene: SKScene {
                 if tile == self.pauseSprite{
                      self.view?.isPaused = true
                      self.lastTouchedSprite = nil
+                    if self.gameTimer != nil {
+                        self.gameTimer.invalidate()
+                    }
+
                 }
                 if tile == self.resumeSprite{
-                     self.view?.isPaused = false
-                     self.lastTouchedSprite = nil
+                    if self.view?.isPaused == true {
+                        self.view?.isPaused = false
+                        self.lastTouchedSprite = nil
+                        if self.gameTimer != nil {
+                        self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
+                        }
+                    }
                 }
+                if tile == self.timePSprite {
+                    self.time = 2*self.time - lrint(self.gameTime)
+                }
+                
+                if tile == self.flagPSprite {
+                    self.flagCount += 1
+                    self.falgLabel.text = "Flag: \(flagCount)"
+                }
+                
+                if tile == self.timePSprite {
+                    self.gameTime = self.gameTime/2
+                }
+                
                 if tile.isKind(of: GameTileSprite.self) {
-        
-                    let mineTile: GameTileSprite = tile as! GameTileSprite
+                    if(self.view?.isPaused == false){
+                        let mineTile: GameTileSprite = tile as! GameTileSprite
                     
-                    if !mineTile.tile.isRevealed {
+                        if !mineTile.tile.isRevealed {
                         //self.touchDownSound!.play()
                         
-                        self.lastTouchedSprite = mineTile
-                        self.longPressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.addFlagToTile), userInfo: nil, repeats: false)
+                            self.lastTouchedSprite = mineTile
+                            self.longPressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.addFlagToTile), userInfo: nil, repeats: false)
                         
-                        let scaleAction = SKAction.scale(to: 0.9, duration: 0.1)
-                        mineTile.run(scaleAction)
+                            let scaleAction = SKAction.scale(to: 0.9, duration: 0.1)
+                            mineTile.run(scaleAction)
                         break
+                        }
                     }
                 }
                 
@@ -361,17 +316,19 @@ class GameScene: SKScene {
     
     func addFlagToTile() {
         
-        if !self.lastTouchedSprite.tile.isFlagged && !self.lastTouchedSprite.tile.isRevealed {
+        if !self.lastTouchedSprite.tile.isFlagged && !self.lastTouchedSprite.tile.isRevealed && self.flagCount > 0{
             
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            
+           
             self.lastTouchedSprite.tile.isFlagged = true
             self.lastTouchedSprite.tile.isRevealed = true
             
             self.lastTouchedSprite.updateSpriteTile()
             
             let boardResults = self.board.getCurrentBoardResults()
-            
+            self.flagCount -= 1
+            self.falgLabel.text = "Flag: \(flagCount)"
+
             if boardResults[0] == boardResults[2] {
                 if let delegate = (self.delegate as? GameViewController) {
                     self.gameEnded = true
@@ -379,7 +336,6 @@ class GameScene: SKScene {
                     delegate.gameDidEnd()
                 }
             }
-            
         }
     }
     
@@ -401,7 +357,15 @@ class GameScene: SKScene {
     
     func updateTime() {
         self.gameTime += 1
-        let totalSeconds = lrint(self.gameTime)
+        let totalSeconds = self.time - lrint(self.gameTime)
+        if totalSeconds < 0 {
+            if let delegate = (self.delegate as? GameViewController) {
+                self.gameEnded = true
+                self.gameTimer.invalidate()
+                delegate.gameDidEnd()
+            }
+        }
+
         let h = totalSeconds / 3600
         let m = (totalSeconds % 3600) / 60
         let s = (totalSeconds % 3600) % 60
@@ -409,11 +373,12 @@ class GameScene: SKScene {
         if(h < 10) {temp = "0"+"\(h):"}
         else {temp = "\(h);"}
         if(m < 10) {temp += "0"+"\(m):"}
-        else {temp += "\(m);"}
+        else {temp += "\(m):"}
         if(s < 10) {temp += "0"+"\(s):"}
         else {temp += "\(s)"}
         self.timeLabel.text = temp
-    }
+        
+           }
     
     // NSNotificationCenter callbacks
     
