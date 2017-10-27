@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="clB-vc-fyl">
@@ -245,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bI-m0-QTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437.5999999999999" y="-1701.4992503748126"/>
+            <point key="canvasLocation" x="3439" y="-2241"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="B5O-r7-Jvl">
@@ -257,7 +263,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="z8D-UO-yru" kind="relationship" relationship="viewControllers" id="OTm-zy-Bg1"/>
+                        <segue destination="SaK-hK-b0s" kind="relationship" relationship="viewControllers" id="ywK-IT-3hb"/>
                         <segue destination="YB3-MB-HJz" kind="relationship" relationship="viewControllers" id="Tzk-7S-WnC"/>
                         <segue destination="MmQ-lb-HKp" kind="relationship" relationship="viewControllers" id="pYy-Ar-4Gj"/>
                     </connections>
@@ -653,6 +659,139 @@
             </objects>
             <point key="canvasLocation" x="3578.4000000000001" y="-475.41229385307349"/>
         </scene>
+        <!--Game-->
+        <scene sceneID="dsl-31-bGd">
+            <objects>
+                <viewController id="SaK-hK-b0s" customClass="GameLevelViewController" customModule="Minesweerper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Us6-Kc-mqn"/>
+                        <viewControllerLayoutGuide type="bottom" id="oXT-TG-8QE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ocA-Or-wQz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cJ-01-2RL">
+                                <rect key="frame" x="156" y="180" width="62" height="30"/>
+                                <state key="normal" title="Beginner"/>
+                                <connections>
+                                    <action selector="ezButton:" destination="SaK-hK-b0s" eventType="touchUpInside" id="j1s-Js-KBa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnP-D6-veE">
+                                <rect key="frame" x="144" y="304" width="87" height="30"/>
+                                <state key="normal" title="Intermediate"/>
+                                <connections>
+                                    <action selector="midButton:" destination="SaK-hK-b0s" eventType="touchUpInside" id="UPs-4R-SHt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh7-Nd-Hk8">
+                                <rect key="frame" x="170" y="426" width="34" height="30"/>
+                                <state key="normal" title="Hard"/>
+                                <connections>
+                                    <action selector="hdButton:" destination="SaK-hK-b0s" eventType="touchUpInside" id="BsN-L0-dF9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-8J-uIS">
+                                <rect key="frame" x="258" y="20" width="101" height="30"/>
+                                <state key="normal" title="Game Settings"/>
+                                <connections>
+                                    <segue destination="QCT-Rn-mjR" kind="show" id="Qaj-kl-jIa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p8d-8J-uIS" firstAttribute="top" secondItem="Us6-Kc-mqn" secondAttribute="bottom" id="09r-tD-dN7"/>
+                            <constraint firstItem="6cJ-01-2RL" firstAttribute="centerX" secondItem="ocA-Or-wQz" secondAttribute="centerX" id="5bq-o3-3zU"/>
+                            <constraint firstItem="RnP-D6-veE" firstAttribute="top" secondItem="6cJ-01-2RL" secondAttribute="bottom" constant="94" id="6rJ-fc-8Qj"/>
+                            <constraint firstItem="6cJ-01-2RL" firstAttribute="centerX" secondItem="nh7-Nd-Hk8" secondAttribute="centerX" id="LcR-dr-KIi"/>
+                            <constraint firstItem="p8d-8J-uIS" firstAttribute="trailing" secondItem="ocA-Or-wQz" secondAttribute="trailingMargin" id="Mt8-18-rf0"/>
+                            <constraint firstItem="6cJ-01-2RL" firstAttribute="centerX" secondItem="RnP-D6-veE" secondAttribute="centerX" id="NPo-y3-kHU"/>
+                            <constraint firstItem="nh7-Nd-Hk8" firstAttribute="top" secondItem="RnP-D6-veE" secondAttribute="bottom" constant="92" id="OFl-dT-Wuk"/>
+                            <constraint firstItem="6cJ-01-2RL" firstAttribute="top" secondItem="Us6-Kc-mqn" secondAttribute="bottom" constant="160" id="lTH-k9-eRb"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game" image="mine.png" id="p8o-AY-8Fw"/>
+                    <connections>
+                        <segue destination="z8D-UO-yru" kind="show" identifier="startGameSegue" id="Lkh-bG-CW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bs-ZK-hFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2462" y="-1755"/>
+        </scene>
+        <!--Game Setting View Controller-->
+        <scene sceneID="xt9-pm-TD6">
+            <objects>
+                <viewController id="QCT-Rn-mjR" customClass="GameSettingViewController" customModule="Minesweerper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q0S-ro-ljS"/>
+                        <viewControllerLayoutGuide type="bottom" id="mnX-Az-cmS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ChP-9d-CTk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="95Z-Sh-zUI">
+                                <rect key="frame" x="87" y="192" width="201" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="em1-lV-WKj"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeVolume:" destination="QCT-Rn-mjR" eventType="valueChanged" id="VTd-Cm-u0c"/>
+                                </connections>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uf9-2L-5Ia">
+                                <rect key="frame" x="239" y="310" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchVibe:" destination="QCT-Rn-mjR" eventType="valueChanged" id="Lk3-G4-Fj2"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcB-rn-ojN">
+                                <rect key="frame" x="158" y="134" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibrations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyd-NL-a20">
+                                <rect key="frame" x="89" y="315" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wir-Wp-VkU">
+                                <rect key="frame" x="304" y="27" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="SaK-hK-b0s" kind="show" id="wP7-Qh-gwA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="95Z-Sh-zUI" firstAttribute="centerX" secondItem="ChP-9d-CTk" secondAttribute="centerX" id="0kK-9q-oWU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uf9-2L-5Ia" secondAttribute="trailing" constant="71" id="0ze-7M-Xdg"/>
+                            <constraint firstItem="TcB-rn-ojN" firstAttribute="centerX" secondItem="95Z-Sh-zUI" secondAttribute="centerX" id="QA3-mL-5cR"/>
+                            <constraint firstItem="uf9-2L-5Ia" firstAttribute="top" secondItem="95Z-Sh-zUI" secondAttribute="bottom" constant="89" id="css-jY-Mvj"/>
+                            <constraint firstItem="95Z-Sh-zUI" firstAttribute="top" secondItem="TcB-rn-ojN" secondAttribute="bottom" constant="37" id="kdh-gZ-dmp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wir-Wp-VkU" secondAttribute="trailing" constant="18" id="oO0-Gn-k85"/>
+                            <constraint firstItem="95Z-Sh-zUI" firstAttribute="leading" secondItem="ChP-9d-CTk" secondAttribute="leadingMargin" constant="73" id="qP5-nN-z7X"/>
+                            <constraint firstItem="95Z-Sh-zUI" firstAttribute="top" secondItem="q0S-ro-ljS" secondAttribute="bottom" constant="172" id="s6O-qu-UBC"/>
+                            <constraint firstItem="cyd-NL-a20" firstAttribute="centerY" secondItem="uf9-2L-5Ia" secondAttribute="centerY" id="sQ6-Ut-6Fh"/>
+                            <constraint firstItem="wir-Wp-VkU" firstAttribute="top" secondItem="q0S-ro-ljS" secondAttribute="bottom" constant="7" id="vOf-5E-ubw"/>
+                            <constraint firstItem="cyd-NL-a20" firstAttribute="leading" secondItem="95Z-Sh-zUI" secondAttribute="leading" id="vgP-5R-Oeh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="vibe" destination="uf9-2L-5Ia" id="g3m-J2-xA3"/>
+                        <outlet property="volume" destination="95Z-Sh-zUI" id="d8o-KD-N9g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30d-Lg-07d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3437.5999999999999" y="-1415.4422788605698"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Coins.png" width="64" height="64"/>
@@ -661,6 +800,7 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ywK-IT-3hb"/>
         <segue reference="pYy-Ar-4Gj"/>
         <segue reference="SKp-3k-uzQ"/>
     </inferredMetricsTieBreakers>
