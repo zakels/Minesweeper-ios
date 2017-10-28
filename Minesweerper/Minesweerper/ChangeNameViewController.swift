@@ -15,6 +15,8 @@ class ChangeNameViewController: UIViewController {
     
     @IBOutlet weak var newName: UITextField!
     @IBOutlet weak var userNameMessage: UILabel!
+    @IBOutlet weak var returnButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     var uid: String = ""
     var cuser: Users?
     
@@ -26,14 +28,17 @@ class ChangeNameViewController: UIViewController {
             let dictionary = snapshot.value as? [String: AnyObject]
             self.cuser = Users.init(uid: self.uid, dictionary: dictionary!)
         })
+        self.returnButton.addTarget(self, action: #selector(ChangeNameViewController.backToProfile), for: .touchUpInside)
+        self.submitButton.addTarget(self, action: #selector(ChangeNameViewController.submitChange), for: .touchUpInside)
     }
     
-    @IBAction func SubmitChange(_ sender: UIButton) {
+    func submitChange() {
         if userNameCheck() {
             self.cuser?.username = newName.text!
             let ref = Database.database().reference().child("Users").child(self.uid)
             ref.updateChildValues((cuser?.toTable())!)
-            self.performSegue(withIdentifier: "changeNameSegue", sender: self)
+            self.backToProfile()
+            //self.performSegue(withIdentifier: "changeNameSegue", sender: self)
         }
     }
     
@@ -54,14 +59,26 @@ class ChangeNameViewController: UIViewController {
             
         else if ((newName.text)?.characters.count)! > 15{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "User name should be no longer than 15 characters"
+            userNameMessage.text = "User name should be no longer\nthan 15 characters"
         }
             
         else {
             result = true
             userNameMessage.text = ""
         }
-        
+        userNameMessage.sizeToFit()
+        userNameMessage.center.x = self.view.center.x
         return result
+    }
+    
+    func backToProfile() {
+        UIView.animate(withDuration: 0.05, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            self.view.alpha = 0.0
+        },completion: { finished in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let vc = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController;
+            vc.selectedIndex = 2
+            self.present(vc, animated: true, completion: nil);
+        })
     }
 }

@@ -19,6 +19,8 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var repeatPassword: UITextField!
     @IBOutlet weak var passwordMessage: UILabel!
     @IBOutlet weak var repeatMessage: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var returnButton: UIButton!
     
     var uid: String = ""
     var cuser: Users?
@@ -31,9 +33,12 @@ class ChangePasswordViewController: UIViewController {
             let dictionary = snapshot.value as? [String: AnyObject]
             self.cuser = Users.init(uid: self.uid, dictionary: dictionary!)
         })
+        
+        self.submitButton.addTarget(self, action: #selector(ChangePasswordViewController.submitChange), for: .touchUpInside)
+        self.returnButton.addTarget(self, action: #selector(ChangePasswordViewController.backToProfile), for: .touchUpInside)
     }
     
-    @IBAction func submitChange(_ sender: UIButton) {
+    func submitChange() {
         var valid: Bool = true
         if !passwordCheck() {
             valid = false
@@ -51,7 +56,8 @@ class ChangePasswordViewController: UIViewController {
                     user?.updatePassword(to: (self.cuser?.password)!)
                     let ref = Database.database().reference().child("Users").child(self.uid)
                     ref.updateChildValues((self.cuser?.toTable())!)
-                    self.performSegue(withIdentifier: "ChangePasswordSegue", sender: self)
+                    self.backToProfile()
+                    //self.performSegue(withIdentifier: "ChangePasswordSegue", sender: self)
                 }
                 
             })
@@ -82,7 +88,8 @@ class ChangePasswordViewController: UIViewController {
             passwordMessage.text = ""
             result = true
         }
-        
+        passwordMessage.sizeToFit()
+        passwordMessage.center.x = self.view.center.x
         return result
         
     }
@@ -99,4 +106,16 @@ class ChangePasswordViewController: UIViewController {
             return false
         }
     }
+    
+    func backToProfile() {
+        UIView.animate(withDuration: 0.05, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            self.view.alpha = 0.0
+        },completion: { finished in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let vc = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController;
+            vc.selectedIndex = 2
+            self.present(vc, animated: true, completion: nil);
+        })
+    }
 }
+

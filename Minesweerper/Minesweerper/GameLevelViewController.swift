@@ -31,6 +31,10 @@ class GameLevelViewController:UIViewController {
         goGame()
     }
     
+    @IBAction func tdButton(_ sender: UIButton) {
+        level = -1
+        goGame()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
