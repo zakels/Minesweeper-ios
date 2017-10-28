@@ -378,11 +378,13 @@ class GameScene: SKScene {
     
     func updateTime() {
         self.gameTime += 1
+        var totalSeconds: Int = 0
+
         if self.level != -1 {
-            let totalSeconds = self.time - lrint(self.gameTime)
+             totalSeconds = self.time - lrint(self.gameTime)
         }
         else {
-            let totalSeconds = lrint(self.gameTime)
+             totalSeconds = lrint(self.gameTime)
         }
         if totalSeconds < 0 {
             if let delegate = (self.delegate as? GameViewController) {
