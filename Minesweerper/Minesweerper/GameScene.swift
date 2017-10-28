@@ -43,6 +43,7 @@ class GameScene: SKScene {
     var timePSprite: SKLabelNode!
     var time: Int = 10
     var level: Int = 0
+    var removeFlag: Int = 0
     
     var flagCount: Int = 10
     override func willMove(from view: SKView) {
@@ -180,7 +181,7 @@ class GameScene: SKScene {
         if !self.gameEnded {
             let location = touches.first!.location(in: self)
             let tiles = self.nodes(at: location)
-            
+            self.removeFlag = 0
             for tile in tiles {
                 
                 if tile == self.pauseSprite{
@@ -227,8 +228,8 @@ class GameScene: SKScene {
                             mineTile.run(scaleAction)
                         break
                         } else if mineTile.tile.isRevealed && mineTile.tile.isFlagged {
-                            self.removeFlagToTile();
-                        }
+                            self.longPressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.removeFlagToTile), userInfo: nil, repeats: false)
+                                                   }
                     }
                 }
                 
@@ -238,7 +239,7 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if(self.lastTouchedSprite != nil){
+        if(self.lastTouchedSprite != nil && self.removeFlag == 0){
             self.longPressTimer.invalidate()
         
         
@@ -349,6 +350,7 @@ class GameScene: SKScene {
             self.lastTouchedSprite.updateFlagTile()
             self.flagCount += 1
             self.falgLabel.text = "Flag: \(flagCount)"
+            self.removeFlag = 1
         }
     }
     
