@@ -165,5 +165,18 @@ class GameTileSprite: SKSpriteNode {
             
         }
     }
+        
 }
+    func updateFlagTile(_ duration:TimeInterval = 0.15){
+        let alphaAnimation = SKAction.fadeAlpha(to: 1, duration: 0.15)
+        let delayAnimation = SKAction.wait(forDuration: duration)
+        self.flagSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 0.0, duration: 0.15)]))
+        self.bombSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 0.0, duration: 0.15)]))
+        if self.textSprite != nil {
+            self.textSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 0.0, duration: 0.15)]))
+        }
+        self.pushSprite.run(SKAction.sequence([delayAnimation, SKAction.fadeAlpha(to: 0.0, duration: 0.15)]))
+        self.tileSprite.run(SKAction.sequence([delayAnimation,alphaAnimation]))
+    }
+    
 }
