@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-//import Firebase
-//import FirebaseDatabase
-//import FirebaseAuth
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 
 
@@ -18,21 +18,27 @@ import UIKit
 class RankViewController: UIViewController {
     
     
-    let rank : Rank = Rank(level: 1)
+    var level : Int = 0
     var ranks : [rank] = []
+
     
     @IBAction func LevelOneButton(_ sender: UIButton) {
-        rank.changeLevel(level: 1)
+        
+        self.level = 1
+        
+        
         loadRanks()
     }
     
     @IBAction func LevelTwoButton(_ sender: UIButton) {
-        rank.changeLevel(level: 2)
+        
+        self.level = 2
         loadRanks()
     }
     
     @IBAction func LevelThreeButton(_ sender: UIButton) {
-        rank.changeLevel(level: 3)
+        
+        self.level = 3
         loadRanks()
     }
     
@@ -47,43 +53,67 @@ class RankViewController: UIViewController {
     @IBOutlet weak var RankFive: UILabel!
     
     override func viewDidLoad() {
+        self.level = 1
         loadRanks()
     }
     
+    
     func loadRanks() {
-//        ranks = rank.getTopRanks()
-//        RankOne.text = ranks[0]
-//        RankTwo.text = ranks[1]
-//        RankThree.text = ranks[2]
-//        RankFour.text = ranks[3]
-//        RankFive.text = ranks[4]
+
+        var count : Int = 0
+        ranks = []
+        let ref = Database.database().reference(withPath: "Ranks").child("Level"+String(self.level))
+        ref.queryOrdered(byChild: "scores").queryLimited(toLast: 5).observe(DataEventType.value, with: {(snapshot) in
+//            print("INTO")
+//        })
+//        ref.observe(DataEventType.value, with: {(snapshot) in
+            
+            for child in snapshot.children{
+                
+                let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key)
+                let dictionary = (childSnapshot.value as? NSDictionary)!
+                let uid = (dictionary["user"] as? String)!
+                let score = (dictionary["scores"] as? Int)!
+                let ref2 = Database.database().reference().child("Users").child(uid)
+                
+                
+                ref2.observe(DataEventType.value, with: {(snapshot2) in
+                    count = count + 1
+                    
+                    let dictionary2 = (snapshot2.value as? NSDictionary)!
+                    let username = (dictionary2["username"] as? String)!
+                    let r = rank(user: uid, score: score, userName: username)
+                    self.ranks.append(r)
+                    
+                    if count == 1 {
+                        self.RankFive.text = self.ranks[0].userName + " " + String(self.ranks[0].score)
+                        
+                    }else if count == 2{
+                        self.RankFour.text = self.ranks[1].userName + " " + String(self.ranks[1].score)
+                    }else if count == 3{
+                        self.RankThree.text = self.ranks[2].userName + " " + String(self.ranks[2].score)
+                    }else if count == 4{
+                        self.RankTwo.text = self.ranks[3].userName + " " + String(self.ranks[3].score)
+                    }else if count == 5{
+                        self.RankOne.text = self.ranks[4].userName + " " + String(self.ranks[4].score)
+                    }
+                    
+                }){ (error) in
+                    print(error.localizedDescription)
+                }
+            }
+            
+        })
+        
+       
+        
+//                RankTwo.text = ranks[1].userName + " " + String(ranks[1].score)
+//        RankThree.text = ranks[2].userName + " " + String(ranks[2].score)
+//        RankFour.text = ranks[3].userName + " " + String(ranks[3].score)
+//        RankFive.text = ranks[4].userName + " " + String(ranks[4].score)
+
     }
     
-    @IBAction func button(_ sender: UIButton) {
-        var record : userRecord
-        record = userRecord(level: 1, points: 23333)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 22222)
-        record.creatRecord()
-        
-        record = userRecord(level: 2, points: 10000)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 387677)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 67678)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 6785)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 20000)
-        record.creatRecord()
-        
-        record = userRecord(level: 1, points: 23333)
-        record.creatRecord()
-    }
+
     
 }
