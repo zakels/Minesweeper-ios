@@ -20,9 +20,9 @@ class GameBoard {
     
     var tiles:[[GameTile]] = []
     
-    init(gameLevels level:Int, tileSize size:CGFloat, numberMine mines:Int) {
-        self.rows = gamelevels[level].rows
-        self.columns = gamelevels[level].columns
+    init(numberOfRows rows: Int, numberOfColumns columns: Int, tileSize size:CGFloat, numberMine mines:Int) {
+        self.rows = rows
+        self.columns = columns
         self.tileSize = size
         self.mines = mines
         //self.theme = SMThemeController(initialTheme: "Royal", numberOfRows: self.rows, numberOfColumns: self.columns)
