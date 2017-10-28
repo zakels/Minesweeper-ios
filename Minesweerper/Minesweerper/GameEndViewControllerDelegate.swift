@@ -192,10 +192,7 @@ class GameEndViewController: UIViewController {
         
         let vc = storyboard.instantiateViewController(withIdentifier: "tabBar") as UIViewController!;
         self.present(vc!, animated: true, completion: nil);
-        //super.dismiss(animated: true, completion: nil)
-      
-        //self.performSegue(withIdentifier: "startGameSegue", sender: self)
-
+       
         })
         
     }
