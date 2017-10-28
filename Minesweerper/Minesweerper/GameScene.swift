@@ -226,6 +226,8 @@ class GameScene: SKScene {
                             let scaleAction = SKAction.scale(to: 0.9, duration: 0.1)
                             mineTile.run(scaleAction)
                         break
+                        } else if mineTile.tile.isRevealed && mineTile.tile.isFlagged {
+                            self.removeFlagToTile();
                         }
                     }
                 }
@@ -337,6 +339,16 @@ class GameScene: SKScene {
                     delegate.gameDidEnd()
                 }
             }
+        }
+    }
+    
+    func removeFlagToTile() {
+        if self.lastTouchedSprite.tile.isFlagged {
+            self.lastTouchedSprite.tile.isFlagged = false
+            self.lastTouchedSprite.tile.isRevealed = false
+            self.lastTouchedSprite.updateFlagTile()
+            self.flagCount += 1
+            self.falgLabel.text = "Flag: \(flagCount)"
         }
     }
     
