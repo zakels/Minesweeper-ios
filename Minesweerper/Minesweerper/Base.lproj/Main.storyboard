@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="703-4V-yAM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -288,7 +288,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="B5O-r7-Jvl">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbV-Or-i7g" sceneMemberID="viewController">
+                <tabBarController id="bbV-Or-i7g" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="J39-Cj-h3a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -744,7 +744,7 @@
                             <constraint firstItem="6cJ-01-2RL" firstAttribute="top" secondItem="Us6-Kc-mqn" secondAttribute="bottom" constant="160" id="lTH-k9-eRb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game" image="mine1.png" id="p8o-AY-8Fw"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="mine.png" id="p8o-AY-8Fw"/>
                     <connections>
                         <segue destination="z8D-UO-yru" kind="show" identifier="startGameSegue" id="Lkh-bG-CW9"/>
                     </connections>
@@ -828,7 +828,6 @@
     <resources>
         <image name="Coins.png" width="64" height="64"/>
         <image name="mine.png" width="50" height="50"/>
-        <image name="mine1.png" width="50" height="50"/>
         <image name="profile.png" width="50" height="50"/>
         <image name="rank.png" width="48" height="48"/>
     </resources>
