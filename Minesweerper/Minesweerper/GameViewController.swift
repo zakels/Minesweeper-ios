@@ -15,7 +15,7 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
     
     var gameScene: GameScene!
     var level: Int = 0
-    
+    var coins : Int = 0
     
     override func viewDidLoad() {
         
@@ -32,6 +32,7 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
             self.gameScene.scaleMode = .aspectFit
             self.gameScene.delegate = self
             self.gameScene.level = self.level
+            self.gameScene.coins = self.coins
             
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
