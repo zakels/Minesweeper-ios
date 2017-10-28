@@ -728,7 +728,7 @@
                                 <rect key="frame" x="258" y="20" width="101" height="30"/>
                                 <state key="normal" title="Game Settings"/>
                                 <connections>
-                                    <segue destination="QCT-Rn-mjR" kind="show" id="Qaj-kl-jIa"/>
+                                    <segue destination="QCT-Rn-mjR" kind="show" identifier="toSettingSegue" id="Qaj-kl-jIa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -796,7 +796,7 @@
                                 <rect key="frame" x="304" y="27" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="SaK-hK-b0s" kind="show" id="wP7-Qh-gwA"/>
+                                    <action selector="goBack:" destination="QCT-Rn-mjR" eventType="touchUpInside" id="lwr-af-n04"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -818,6 +818,7 @@
                     <connections>
                         <outlet property="vibe" destination="uf9-2L-5Ia" id="g3m-J2-xA3"/>
                         <outlet property="volume" destination="95Z-Sh-zUI" id="d8o-KD-N9g"/>
+                        <segue destination="SaK-hK-b0s" kind="show" identifier="goBackLevelSegue" id="ZBJ-6o-AzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30d-Lg-07d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -833,7 +834,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pYy-Ar-4Gj"/>
+<<<<<<< HEAD
         <segue reference="SKp-3k-uzQ"/>
         <segue reference="ywK-IT-3hb"/>
+=======
+        <segue reference="35f-hI-Pr6"/>
+        <segue reference="ZBJ-6o-AzO"/>
+>>>>>>> bcabd7892a6ae90e148e818d5879b48c236f7e7a
     </inferredMetricsTieBreakers>
 </document>

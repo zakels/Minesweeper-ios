@@ -16,6 +16,7 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
     var gameScene: GameScene!
     var level: Int = 0
     var coins : Int = 0
+    var volume : Float = 0.0
     
     override func viewDidLoad() {
         
@@ -33,13 +34,13 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
             self.gameScene.delegate = self
             self.gameScene.level = self.level
             self.gameScene.coins = self.coins
-            
+            self.gameScene.volume = self.volume
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             skView.presentScene(self.gameScene)
         }
-        
+            //print(volume)
     }
     
     override var shouldAutorotate : Bool {

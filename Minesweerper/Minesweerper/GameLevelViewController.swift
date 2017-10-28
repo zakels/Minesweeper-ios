@@ -14,6 +14,7 @@ class GameLevelViewController:UIViewController {
     var level : Int = 0
     var uid : String = ""
     var coins : Int = 0
+    var volume : Float = 0.0
     
     @IBAction func ezButton(_ sender: UIButton) {
         level = 0
@@ -59,6 +60,12 @@ class GameLevelViewController:UIViewController {
             let gameVC: GameViewController = segue.destination as! GameViewController
             gameVC.level = self.level
             gameVC.coins = self.coins
+            gameVC.volume = self.volume
         }
+        if segue.identifier == "toSettingSegue" {
+            let settingVC: GameSettingViewController = segue.destination as! GameSettingViewController
+            settingVC.currentV = self.volume
+        }
+        //print(volume)
     }
 }

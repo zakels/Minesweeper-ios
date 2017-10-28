@@ -36,6 +36,7 @@
 		629659D11F7C93D000585878 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629659D01F7C93D000585878 /* Rank.swift */; };
 		629659D31F7CA91D00585878 /* flag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 629659D21F7CA91D00585878 /* flag.jpg */; };
 		62C05B5E1FA45FD300D02F9F /* mine1.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C05B5D1FA45FD300D02F9F /* mine1.png */; };
+		62C05B601FA4665000D02F9F /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 62C05B5F1FA4665000D02F9F /* click.wav */; };
 		A28021CADDBAB44A901B1F24 /* Pods_MinesweerperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */; };
 		BF1C7298557EA63411EF2B18 /* Pods_MinesweerperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */; };
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
@@ -100,6 +101,7 @@
 		629659D01F7C93D000585878 /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		629659D21F7CA91D00585878 /* flag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flag.jpg; sourceTree = "<group>"; };
 		62C05B5D1FA45FD300D02F9F /* mine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine1.png; sourceTree = "<group>"; };
+		62C05B5F1FA4665000D02F9F /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinesweerperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CC79ABDF35C352925EBEE4 /* Pods-Minesweerper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.debug.xcconfig"; sourceTree = "<group>"; };
 		D9F047E95D397A455195C4AC /* Pods-MinesweerperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperUITests/Pods-MinesweerperUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				FD15DC4E1F74B060006615FD /* UserRecord.swift */,
 				01CEC5901F733A6F005C7C2D /* Users.swift */,
 				01AF71B91F6217B500010A92 /* Main.storyboard */,
+				62C05B5F1FA4665000D02F9F /* click.wav */,
 				0102A0AE1FA3F5AD006B3769 /* GameLevelViewController.swift */,
 				625BE2EE1F749575005005F8 /* GameViewController.swift */,
 				0102A0B01FA3F603006B3769 /* GameSettingViewController.swift */,
@@ -371,6 +374,7 @@
 				01AF71BD1F6217B500010A92 /* Assets.xcassets in Resources */,
 				629659D31F7CA91D00585878 /* flag.jpg in Resources */,
 				014EA28E1F6E0A340017EAA2 /* profile.png in Resources */,
+				62C05B601FA4665000D02F9F /* click.wav in Resources */,
 				01AF71BB1F6217B500010A92 /* Main.storyboard in Resources */,
 				014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */,
 			);

@@ -35,6 +35,8 @@ class GameScene: SKScene {
     var gameTime: TimeInterval = 0
     var gameEnded: Bool = false
     
+    var sound: AVAudioPlayer!
+    
     var scoreLabel: SKLabelNode!
     var falgLabel: SKLabelNode!
     var timeLabel: SKLabelNode!
@@ -42,9 +44,10 @@ class GameScene: SKScene {
     var resumeSprite: SKLabelNode!
     var flagPSprite: SKLabelNode!
     var timePSprite: SKLabelNode!
-    var time: Int = 10
+    var time: Int = 60
     var level: Int = 0
     var removeFlag: Int = 0
+    var volume: Float = 0.5
     
     let rowLevel: [Int] = [8, 12, 14]
     let flagLevel: [Int] = [10, 17, 22]
@@ -76,6 +79,8 @@ class GameScene: SKScene {
 
         
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
+        
+        self.sound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/click.wav", Bundle.main.resourcePath!) as String))
         
        //init user
         let uid = (Auth.auth().currentUser?.uid)!
@@ -143,7 +148,7 @@ class GameScene: SKScene {
 
         self.addChild(self.flagPSprite)
         
-        timePSprite = SKLabelNode(text: "Time*1.5")
+        timePSprite = SKLabelNode(text: "Time+15")
         timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
         timePSprite.horizontalAlignmentMode = .right
         timePSprite.fontSize = 25.0
@@ -228,6 +233,7 @@ class GameScene: SKScene {
                     }
                 }
                 if tile == self.timePSprite {
+<<<<<<< HEAD
                     if(self.coins >= 300 &&  self.view?.isPaused == false){ //comment for bug 7 & bug 19
                         self.time = 2*self.time - lrint(self.gameTime)
                         self.coins -= 300
@@ -237,6 +243,18 @@ class GameScene: SKScene {
                 if tile == self.flagPSprite {
                     
                     if(self.coins >= 200 &&  self.view?.isPaused == false){    //comment for bug 7 & bug 19
+=======
+                    if(self.coins >= 300 && self.view?.isPaused == false){
+                        //self.time = 2*self.time - lrint(self.gameTime)
+                        self.time = self.time+12
+                        self.coins -= 300
+                        self.scoreLabel.text = "Money: \(self.coins)"
+                    }
+                }
+                
+                if tile == self.flagPSprite {
+                    if(self.coins >= 200 && self.view?.isPaused == false){
+>>>>>>> bcabd7892a6ae90e148e818d5879b48c236f7e7a
                         self.flagCount += 1
                         self.coins -= 200
                         self.falgLabel.text = "Flag: \(flagCount)"
@@ -256,6 +274,9 @@ class GameScene: SKScene {
                     
                         if !mineTile.tile.isRevealed {
                         //self.touchDownSound!.play()
+                            //print(volume)
+                            self.sound.volume = self.volume
+                            self.sound.play()
                         
                             self.lastTouchedSprite = mineTile
                             self.longPressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.addFlagToTile), userInfo: nil, repeats: false)
@@ -286,6 +307,10 @@ class GameScene: SKScene {
                 //self.touchUpSound!.play()
                 self.revealTileSprite(self.lastTouchedSprite)
                 } else {
+                    if (vibes_on) {
+                        print("its Vibrating")
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    }
                 
                 //self.bombExplodeSound!.play()
                 self.revealAllTilesWithBombs()
