@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class GameLevelViewController:UIViewController {
     var level : Int = 0
+    var uid : String = ""
+    var coins : Int = 0
     
     @IBAction func ezButton(_ sender: UIButton) {
         level = 0
@@ -27,6 +30,26 @@ class GameLevelViewController:UIViewController {
         goGame()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //fetch user's coins
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global(qos: .default).async {
+            self.uid = (Auth.auth().currentUser?.uid)!
+            let ref = Database.database().reference().child("Users").child(self.uid)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let dictionary = snapshot.value as? [String: AnyObject]
+                self.coins = (dictionary?["points"] as? Int)!
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            group.leave()
+        }
+        group.wait()
+    }
+    
     func goGame(){
         self.performSegue(withIdentifier: "startGameSegue", sender: self)
     }
@@ -35,6 +58,7 @@ class GameLevelViewController:UIViewController {
         if segue.identifier == "startGameSegue" {
             let gameVC: GameViewController = segue.destination as! GameViewController
             gameVC.level = self.level
+            gameVC.coins = self.coins
         }
     }
 }
