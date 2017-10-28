@@ -43,7 +43,8 @@ class GameScene: SKScene {
     var timePSprite: SKLabelNode!
     var time: Int = 10
     var level: Int = 0
-    
+    let rowLevel: [Int] = [8, 12, 14]
+    let flagLevel: [Int] = [10, 17, 22]
     var flagCount: Int = 10
     override func willMove(from view: SKView) {
         SKTexture.preload(self.boardTextures, withCompletionHandler: {
@@ -57,11 +58,11 @@ class GameScene: SKScene {
        
         self.boardTextures = [SKTexture(imageNamed: "mine"), SKTexture(imageNamed: "flag"), SKTexture(imageNamed: "tiles_notp"), SKTexture(imageNamed: "tiles_p")]
        
-        let rows: Int = 8
+        let rows = rowLevel[level]
         let squareSize = (self.view!.frame.size.width - CGFloat(rows)) / CGFloat(rows)
         let columns = Int((self.view!.frame.size.height - CGFloat(rows+50)) / squareSize)
   
-        self.board = GameBoard(gameLevels: level, tileSize: squareSize, numberMine:flagCount)
+        self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize, numberMine:flagLevel[level])
         self.backgroundColor = UIColor.black
         
         self.setup()
@@ -86,7 +87,7 @@ class GameScene: SKScene {
     }
     
     func setup () {
-        flagCount = 10
+        flagCount = flagLevel[level]
         scoreLabel = SKLabelNode(text: "Money: 0")
         scoreLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(30))
         scoreLabel.horizontalAlignmentMode = .left
