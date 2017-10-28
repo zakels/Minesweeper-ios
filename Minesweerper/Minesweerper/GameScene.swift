@@ -95,10 +95,7 @@ class GameScene: SKScene {
         scoreLabel.horizontalAlignmentMode = .left
         self.addChild(self.scoreLabel)
         
-        timeLabel = SKLabelNode(text: "00:00:00")
-        timeLabel.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(30))
-        timeLabel.horizontalAlignmentMode = .right
-        self.addChild(self.timeLabel)
+      
         
         
         falgLabel = SKLabelNode(text: "Flag: \(flagCount)")
@@ -116,15 +113,24 @@ class GameScene: SKScene {
         resumeSprite.horizontalAlignmentMode = .center
         self.addChild(self.resumeSprite)
         
-        flagPSprite = SKLabelNode(text: "flag+1")
-        flagPSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(50))
-        flagPSprite.horizontalAlignmentMode = .right
-        self.addChild(self.flagPSprite)
         
-        timePSprite = SKLabelNode(text: "Time*1.5")
-        timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
-        timePSprite.horizontalAlignmentMode = .right
-        self.addChild(self.timePSprite)
+        timeLabel = SKLabelNode(text: "00:00:00")
+        timeLabel.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(30))
+        timeLabel.horizontalAlignmentMode = .right
+        self.addChild(self.timeLabel)
+        
+        if(self.level == -1)
+        {
+            flagPSprite = SKLabelNode(text: "flag+1")
+            flagPSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(50))
+            flagPSprite.horizontalAlignmentMode = .right
+            self.addChild(self.flagPSprite)
+        
+            timePSprite = SKLabelNode(text: "Time*1.5")
+            timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
+            timePSprite.horizontalAlignmentMode = .right
+            self.addChild(self.timePSprite)
+        }
         
         var xPosition: CGFloat = 0
         var yPosition: CGFloat = 0
@@ -372,7 +378,12 @@ class GameScene: SKScene {
     
     func updateTime() {
         self.gameTime += 1
-        let totalSeconds = self.time - lrint(self.gameTime)
+        if self.level != -1 {
+            let totalSeconds = self.time - lrint(self.gameTime)
+        }
+        else {
+            let totalSeconds = lrint(self.gameTime)
+        }
         if totalSeconds < 0 {
             if let delegate = (self.delegate as? GameViewController) {
                 self.gameEnded = true
