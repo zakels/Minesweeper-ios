@@ -16,17 +16,38 @@ class GameSettingViewController: UIViewController {
     
     @IBOutlet weak var volume: UISlider!
     @IBOutlet weak var vibe: UISwitch!
+    var currentV : Float = 0.5
     //let volumeView = MPVolumeView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        vibe.setOn(false, animated: false)
+        vibe.setOn(vibes_on, animated: false)
     }
     
     @IBAction func changeVolume(_ sender: Any) {
-        var currentV = self.volume.value
+        let currentV = volume.value
         (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(currentV, animated: false)
+        print(currentV)
     }
     @IBAction func switchVibe(_ sender: Any) {
         vibes_on = vibe.isOn
     }
+    
+    @IBAction func goBack(_ sender: Any) {
+        currentV = volume.value
+        please()
+    }
+    func please() {
+        self.performSegue(withIdentifier: "goBackLevelSegue", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goBackLevelSegue" {
+            let gameVLC: GameLevelViewController = segue.destination as! GameLevelViewController
+            gameVLC.volume = currentV
+            
+        }
+        //print(currentV)
+    }
+
 }

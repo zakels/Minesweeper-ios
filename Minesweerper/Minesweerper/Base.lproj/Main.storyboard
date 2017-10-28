@@ -288,7 +288,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="B5O-r7-Jvl">
             <objects>
-                <tabBarController id="bbV-Or-i7g" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="bbV-Or-i7g" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="J39-Cj-h3a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -728,7 +728,7 @@
                                 <rect key="frame" x="258" y="20" width="101" height="30"/>
                                 <state key="normal" title="Game Settings"/>
                                 <connections>
-                                    <segue destination="QCT-Rn-mjR" kind="show" id="Qaj-kl-jIa"/>
+                                    <segue destination="QCT-Rn-mjR" kind="show" identifier="toSettingSegue" id="Qaj-kl-jIa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -796,7 +796,7 @@
                                 <rect key="frame" x="304" y="27" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="SaK-hK-b0s" kind="show" id="wP7-Qh-gwA"/>
+                                    <action selector="goBack:" destination="QCT-Rn-mjR" eventType="touchUpInside" id="lwr-af-n04"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -818,6 +818,7 @@
                     <connections>
                         <outlet property="vibe" destination="uf9-2L-5Ia" id="g3m-J2-xA3"/>
                         <outlet property="volume" destination="95Z-Sh-zUI" id="d8o-KD-N9g"/>
+                        <segue destination="SaK-hK-b0s" kind="show" identifier="goBackLevelSegue" id="ZBJ-6o-AzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30d-Lg-07d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -832,8 +833,8 @@
         <image name="rank.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ywK-IT-3hb"/>
         <segue reference="pYy-Ar-4Gj"/>
         <segue reference="35f-hI-Pr6"/>
+        <segue reference="ZBJ-6o-AzO"/>
     </inferredMetricsTieBreakers>
 </document>

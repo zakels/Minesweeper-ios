@@ -35,6 +35,8 @@ class GameScene: SKScene {
     var gameTime: TimeInterval = 0
     var gameEnded: Bool = false
     
+    var sound: AVAudioPlayer!
+    
     var scoreLabel: SKLabelNode!
     var falgLabel: SKLabelNode!
     var timeLabel: SKLabelNode!
@@ -45,6 +47,7 @@ class GameScene: SKScene {
     var time: Int = 10
     var level: Int = 0
     var removeFlag: Int = 0
+    var volume: Float = 0.5
     
     let rowLevel: [Int] = [8, 12, 14]
     let flagLevel: [Int] = [10, 17, 22]
@@ -76,6 +79,8 @@ class GameScene: SKScene {
 
         
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.updateTime), userInfo: nil, repeats: true)
+        
+        self.sound = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: NSString(format: "%@/click.wav", Bundle.main.resourcePath!) as String))
         
        //init user
         let uid = (Auth.auth().currentUser?.uid)!
@@ -255,6 +260,9 @@ class GameScene: SKScene {
                     
                         if !mineTile.tile.isRevealed {
                         //self.touchDownSound!.play()
+                            //print(volume)
+                            self.sound.volume = self.volume
+                            self.sound.play()
                         
                             self.lastTouchedSprite = mineTile
                             self.longPressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.addFlagToTile), userInfo: nil, repeats: false)
@@ -285,6 +293,10 @@ class GameScene: SKScene {
                 //self.touchUpSound!.play()
                 self.revealTileSprite(self.lastTouchedSprite)
                 } else {
+                    if (vibes_on) {
+                        print("its Vibrating")
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    }
                 
                 //self.bombExplodeSound!.play()
                 self.revealAllTilesWithBombs()
