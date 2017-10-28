@@ -103,17 +103,21 @@ class GameScene: SKScene {
         flagCount = flagLevel[level]
         
         scoreLabel = SKLabelNode(text: "Money: \(self.coins)")
+        scoreLabel.fontSize = 25.0
+        
         scoreLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(30))
         scoreLabel.horizontalAlignmentMode = .left
         self.addChild(self.scoreLabel)
         
         timeLabel = SKLabelNode(text: "00:00:00")
+        timeLabel.fontSize = 25.0
         timeLabel.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(30))
         timeLabel.horizontalAlignmentMode = .right
         self.addChild(self.timeLabel)
         
         
         falgLabel = SKLabelNode(text: "Flag: \(flagCount)")
+        falgLabel.fontSize = 25.0
         falgLabel.position = CGPoint(x:self.view!.frame.minX, y: self.view!.frame.maxY-CGFloat(50))
         falgLabel.horizontalAlignmentMode = .left
         self.addChild(self.falgLabel)
@@ -121,21 +125,29 @@ class GameScene: SKScene {
         pauseSprite = SKLabelNode(text: "Pause")
         pauseSprite.position = CGPoint(x:self.view!.frame.midX, y: self.view!.frame.maxY-CGFloat(30))
         pauseSprite.horizontalAlignmentMode = .center
+        pauseSprite.fontSize = 25.0
+
         self.addChild(self.pauseSprite)
         
         resumeSprite = SKLabelNode(text: "Resume")
         resumeSprite.position = CGPoint(x:self.view!.frame.midX, y: self.view!.frame.maxY-CGFloat(50))
         resumeSprite.horizontalAlignmentMode = .center
+        resumeSprite.fontSize = 25.0
+
         self.addChild(self.resumeSprite)
         
         flagPSprite = SKLabelNode(text: "flag+1")
         flagPSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(50))
         flagPSprite.horizontalAlignmentMode = .right
+        flagPSprite.fontSize = 25.0
+
         self.addChild(self.flagPSprite)
         
         timePSprite = SKLabelNode(text: "Time*1.5")
         timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
         timePSprite.horizontalAlignmentMode = .right
+        timePSprite.fontSize = 25.0
+
         self.addChild(self.timePSprite)
         
         var xPosition: CGFloat = 0
