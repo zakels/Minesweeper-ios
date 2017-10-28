@@ -30,8 +30,11 @@ class GameLevelViewController:UIViewController {
     func goGame(){
         self.performSegue(withIdentifier: "startGameSegue", sender: self)
     }
-    
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        self.tabBarController?.tabBar.isHidden = false
+
         if segue.identifier == "startGameSegue" {
             let gameVC: GameViewController = segue.destination as! GameViewController
             gameVC.level = self.level

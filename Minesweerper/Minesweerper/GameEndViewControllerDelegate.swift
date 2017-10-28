@@ -189,11 +189,15 @@ class GameEndViewController: UIViewController {
             finished in
             
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let vc = storyboard.instantiateViewController(withIdentifier: "level") as UIViewController!;
-             //self.dismiss(animated: false, completion: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabBar") as UIViewController!;
         self.present(vc!, animated: true, completion: nil);
-       
+        //super.dismiss(animated: true, completion: nil)
+      
+        //self.performSegue(withIdentifier: "startGameSegue", sender: self)
+
         })
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

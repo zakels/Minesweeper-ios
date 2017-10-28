@@ -186,7 +186,7 @@ class GameScene: SKScene {
             self.removeFlag = 0
             for tile in tiles {
                 
-                if tile == self.pauseSprite{
+                if tile == self.pauseSprite && self.view?.isPaused == false{
                      self.view?.isPaused = true
                      self.lastTouchedSprite = nil
                     if self.gameTimer != nil {
@@ -203,18 +203,16 @@ class GameScene: SKScene {
                         }
                     }
                 }
-                if tile == self.timePSprite {
+                //bug 19
+                if tile == self.timePSprite && self.view?.isPaused == false{
                     self.time = 2*self.time - lrint(self.gameTime)
                 }
                 
-                if tile == self.flagPSprite {
+                if tile == self.flagPSprite && self.view?.isPaused == false {
                     self.flagCount += 1
                     self.falgLabel.text = "Flag: \(flagCount)"
                 }
                 
-                if tile == self.timePSprite {
-                    self.gameTime = self.gameTime/2
-                }
                 
                 if tile.isKind(of: GameTileSprite.self) {
                     if(self.view?.isPaused == false){
