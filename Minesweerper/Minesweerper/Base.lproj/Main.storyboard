@@ -279,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game" image="mine.png" id="q9h-oc-PXo"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="mine1.png" id="q9h-oc-PXo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bI-m0-QTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -744,7 +744,7 @@
                             <constraint firstItem="6cJ-01-2RL" firstAttribute="top" secondItem="Us6-Kc-mqn" secondAttribute="bottom" constant="160" id="lTH-k9-eRb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game" image="mine.png" id="p8o-AY-8Fw"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="mine1.png" id="p8o-AY-8Fw"/>
                     <connections>
                         <segue destination="z8D-UO-yru" kind="show" identifier="startGameSegue" id="Lkh-bG-CW9"/>
                     </connections>
@@ -827,7 +827,7 @@
     </scenes>
     <resources>
         <image name="Coins.png" width="64" height="64"/>
-        <image name="mine.png" width="50" height="50"/>
+        <image name="mine1.png" width="50" height="50"/>
         <image name="profile.png" width="50" height="50"/>
         <image name="rank.png" width="48" height="48"/>
     </resources>
