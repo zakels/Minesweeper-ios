@@ -20,8 +20,8 @@ class GameEndViewController: UIViewController {
     
     var endGameStats: NSDictionary!
     
-    var shareButton: UIButton!
     var resetButton: UIButton!
+    var returnButton: UIButton!
     
     init(stats: NSDictionary) {
         super.init(nibName: nil, bundle: nil)
@@ -123,7 +123,7 @@ class GameEndViewController: UIViewController {
         self.view.addSubview(summaryLabel)
         
         let buttonWidth = (self.view.frame.size.width - 60.0)
-        self.resetButton = UIButton(frame: CGRect(x: 30.0, y: (self.view.frame.size.height - 46.0) - 30.0, width: buttonWidth, height: 46.0))
+        self.resetButton = UIButton(frame: CGRect(x: 30.0, y: (self.view.frame.size.height - 46.0) - 86.0, width: buttonWidth, height: 46.0))
         self.resetButton.setTitle((self.endGameStats["flaggedMineCount"] as! Int) == (self.endGameStats["mineCount"] as! Int) ? "Play Again".uppercased() : "Try Again".uppercased(), for: UIControlState())
         self.resetButton.setTitleColor(UIColor.white, for: UIControlState())
         self.resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightHeavy)
@@ -133,6 +133,18 @@ class GameEndViewController: UIViewController {
         self.resetButton.layer.borderWidth = 3.0
         self.resetButton.addTarget(self, action: #selector(GameEndViewController.startReset), for: UIControlEvents.touchUpInside)
         self.view.addSubview(self.resetButton)
+
+        
+        self.returnButton = UIButton(frame: CGRect(x: 30.0, y: (self.view.frame.size.height - 46.0) - 30.0, width: buttonWidth, height: 46.0))
+        self.returnButton.setTitle( "retrun".uppercased(), for: UIControlState())
+        self.returnButton.setTitleColor(UIColor.white, for: UIControlState())
+        self.returnButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightHeavy)
+        self.returnButton.backgroundColor = UIColor.clear
+        self.returnButton.layer.cornerRadius = 23.0
+        self.returnButton.layer.borderColor = UIColor.white.cgColor
+        self.returnButton.layer.borderWidth = 3.0
+        self.returnButton.addTarget(self, action: #selector(GameEndViewController.returnB), for: UIControlEvents.touchUpInside)
+        self.view.addSubview(self.returnButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -169,6 +181,20 @@ class GameEndViewController: UIViewController {
         
     }
     
+    func returnB() {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            self.view.alpha = 0.0
+        },completion: {
+            
+            finished in
+            
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let vc = storyboard.instantiateViewController(withIdentifier: "Rank") as UIViewController!;
+             //self.dismiss(animated: false, completion: nil)
+        self.present(vc!, animated: true, completion: nil);
+       
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
