@@ -13,9 +13,9 @@
 		01374E261F74532F000DDDF5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */; };
 		01374E281F7455B1000DDDF5 /* Coins.png in Resources */ = {isa = PBXBuildFile; fileRef = 01374E271F7455B1000DDDF5 /* Coins.png */; };
 		0147DD8D1F72A7C60008C288 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */; };
-		014AADCA1FA45F9B0011DAFD /* mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 014AADC91FA45F9B0011DAFD /* mine.png */; };
 		014EA28E1F6E0A340017EAA2 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28D1F6E0A340017EAA2 /* profile.png */; };
 		014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA28F1F6E0A3F0017EAA2 /* rank.png */; };
+		014EA2921F6E0A460017EAA2 /* mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 014EA2911F6E0A460017EAA2 /* mine.png */; };
 		01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A375041F69DAB400B3A7D0 /* GoogleService-Info.plist */; };
 		01AF71B21F6217B500010A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71B11F6217B500010A92 /* AppDelegate.swift */; };
 		01AF71B41F6217B500010A92 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF71B31F6217B500010A92 /* RootViewController.swift */; };
@@ -67,9 +67,9 @@
 		01374E251F74532F000DDDF5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		01374E271F7455B1000DDDF5 /* Coins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coins.png; sourceTree = "<group>"; };
 		0147DD8C1F72A7C60008C288 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		014AADC91FA45F9B0011DAFD /* mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine.png; sourceTree = "<group>"; };
 		014EA28D1F6E0A340017EAA2 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		014EA28F1F6E0A3F0017EAA2 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
+		014EA2911F6E0A460017EAA2 /* mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine.png; sourceTree = "<group>"; };
 		01A375041F69DAB400B3A7D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AF71AE1F6217B500010A92 /* Minesweerper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweerper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AF71B11F6217B500010A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				629659D21F7CA91D00585878 /* flag.jpg */,
 				01374E271F7455B1000DDDF5 /* Coins.png */,
 				014EA28D1F6E0A340017EAA2 /* profile.png */,
-				014AADC91FA45F9B0011DAFD /* mine.png */,
+				014EA2911F6E0A460017EAA2 /* mine.png */,
 				014EA28F1F6E0A3F0017EAA2 /* rank.png */,
 			);
 			name = images;
@@ -366,11 +366,11 @@
 			files = (
 				01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */,
 				01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */,
-				014AADCA1FA45F9B0011DAFD /* mine.png in Resources */,
 				01374E281F7455B1000DDDF5 /* Coins.png in Resources */,
 				01AF71BD1F6217B500010A92 /* Assets.xcassets in Resources */,
 				629659D31F7CA91D00585878 /* flag.jpg in Resources */,
 				014EA28E1F6E0A340017EAA2 /* profile.png in Resources */,
+				014EA2921F6E0A460017EAA2 /* mine.png in Resources */,
 				01AF71BB1F6217B500010A92 /* Main.storyboard in Resources */,
 				014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */,
 			);
