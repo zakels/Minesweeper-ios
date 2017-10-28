@@ -42,6 +42,7 @@ class GameScene: SKScene {
     var flagPSprite: SKLabelNode!
     var timePSprite: SKLabelNode!
     var time: Int = 10
+    var level: Int = 0
     
     var flagCount: Int = 10
     override func willMove(from view: SKView) {
@@ -60,7 +61,7 @@ class GameScene: SKScene {
         let squareSize = (self.view!.frame.size.width - CGFloat(rows)) / CGFloat(rows)
         let columns = Int((self.view!.frame.size.height - CGFloat(rows+50)) / squareSize)
   
-        self.board = GameBoard(numberOfRows: rows, numberOfColumns: columns, tileSize: squareSize, numberMine:flagCount)
+        self.board = GameBoard(gameLevels: level, tileSize: squareSize, numberMine:flagCount)
         self.backgroundColor = UIColor.black
         
         self.setup()

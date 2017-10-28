@@ -14,6 +14,7 @@ import AudioToolbox
 class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControllerDelegate {
     
     var gameScene: GameScene!
+    var level: Int = 0
     
     
     override func viewDidLoad() {
@@ -30,6 +31,8 @@ class GameViewController: UIViewController, SKSceneDelegate, GameEndViewControll
             self.gameScene = GameScene(size: skView.bounds.size)
             self.gameScene.scaleMode = .aspectFit
             self.gameScene.delegate = self
+            self.gameScene.level = self.level
+            
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true

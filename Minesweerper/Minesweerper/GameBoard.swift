@@ -14,14 +14,15 @@ class GameBoard {
     let columns:Int
     let tileSize:CGFloat
     var mines:Int
+    //var level: Int
+    let gamelevels:[(rows:Int, columns:Int)] = [(8, 13), (12, 20), (14, 24)]
     //let theme: SMThemeController
     
     var tiles:[[GameTile]] = []
     
-    init(numberOfRows rows:Int, numberOfColumns columns:Int, tileSize size:CGFloat, numberMine mines:Int) {
-        
-        self.rows = rows
-        self.columns = columns
+    init(gameLevels level:Int, tileSize size:CGFloat, numberMine mines:Int) {
+        self.rows = gamelevels[level].rows
+        self.columns = gamelevels[level].columns
         self.tileSize = size
         self.mines = mines
         //self.theme = SMThemeController(initialTheme: "Royal", numberOfRows: self.rows, numberOfColumns: self.columns)
