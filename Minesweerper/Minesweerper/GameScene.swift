@@ -44,7 +44,7 @@ class GameScene: SKScene {
     var resumeSprite: SKLabelNode!
     var flagPSprite: SKLabelNode!
     var timePSprite: SKLabelNode!
-    var time: Int = 10
+    var time: Int = 60
     var level: Int = 0
     var removeFlag: Int = 0
     var volume: Float = 0.5
@@ -148,7 +148,7 @@ class GameScene: SKScene {
 
         self.addChild(self.flagPSprite)
         
-        timePSprite = SKLabelNode(text: "Time*1.5")
+        timePSprite = SKLabelNode(text: "Time+15")
         timePSprite.position = CGPoint(x:self.view!.frame.maxX, y: self.view!.frame.maxY-CGFloat(70))
         timePSprite.horizontalAlignmentMode = .right
         timePSprite.fontSize = 25.0
@@ -233,14 +233,16 @@ class GameScene: SKScene {
                     }
                 }
                 if tile == self.timePSprite {
-                    if(self.coins >= 300){
-                        self.time = 2*self.time - lrint(self.gameTime)
+                    if(self.coins >= 300 && self.view?.isPaused == false){
+                        //self.time = 2*self.time - lrint(self.gameTime)
+                        self.time = self.time+12
                         self.coins -= 300
+                        self.scoreLabel.text = "Money: \(self.coins)"
                     }
                 }
                 
                 if tile == self.flagPSprite {
-                    if(self.coins >= 200){
+                    if(self.coins >= 200 && self.view?.isPaused == false){
                         self.flagCount += 1
                         self.coins -= 200
                         self.falgLabel.text = "Flag: \(flagCount)"
