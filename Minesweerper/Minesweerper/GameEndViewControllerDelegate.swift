@@ -189,7 +189,7 @@ class GameEndViewController: UIViewController {
             finished in
             
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let vc = storyboard.instantiateViewController(withIdentifier: "Rank") as UIViewController!;
+        let vc = storyboard.instantiateViewController(withIdentifier: "level") as UIViewController!;
              //self.dismiss(animated: false, completion: nil)
         self.present(vc!, animated: true, completion: nil);
        
