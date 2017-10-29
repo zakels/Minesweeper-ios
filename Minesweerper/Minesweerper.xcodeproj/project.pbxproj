@@ -37,6 +37,8 @@
 		629659D31F7CA91D00585878 /* flag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 629659D21F7CA91D00585878 /* flag.jpg */; };
 		62C05B5E1FA45FD300D02F9F /* mine1.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C05B5D1FA45FD300D02F9F /* mine1.png */; };
 		62C05B601FA4665000D02F9F /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 62C05B5F1FA4665000D02F9F /* click.wav */; };
+		A2268BF51FA5A83D000A7519 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = A2268BF41FA5A83D000A7519 /* wrong.png */; };
+		A2268BF71FA5ABEC000A7519 /* dinosaur.png in Resources */ = {isa = PBXBuildFile; fileRef = A2268BF61FA5ABEC000A7519 /* dinosaur.png */; };
 		A28021CADDBAB44A901B1F24 /* Pods_MinesweerperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */; };
 		BF1C7298557EA63411EF2B18 /* Pods_MinesweerperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */; };
 		E80FE835A3593352AA575C82 /* Pods_Minesweerper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075315E3EC79036E84C26C3 /* Pods_Minesweerper.framework */; };
@@ -103,6 +105,8 @@
 		62C05B5D1FA45FD300D02F9F /* mine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mine1.png; sourceTree = "<group>"; };
 		62C05B5F1FA4665000D02F9F /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		9C2079B258E736518F6046C1 /* Pods_MinesweerperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinesweerperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2268BF41FA5A83D000A7519 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wrong.png; path = ../../../Desktop/wrong.png; sourceTree = "<group>"; };
+		A2268BF61FA5ABEC000A7519 /* dinosaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dinosaur.png; path = ../../../Desktop/dinosaur.png; sourceTree = "<group>"; };
 		C2CC79ABDF35C352925EBEE4 /* Pods-Minesweerper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minesweerper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Minesweerper/Pods-Minesweerper.debug.xcconfig"; sourceTree = "<group>"; };
 		D9F047E95D397A455195C4AC /* Pods-MinesweerperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinesweerperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinesweerperUITests/Pods-MinesweerperUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED56F9DF141081D836C67CEB /* Pods_MinesweerperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinesweerperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,8 @@
 		014EA28C1F6E09E00017EAA2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A2268BF61FA5ABEC000A7519 /* dinosaur.png */,
+				A2268BF41FA5A83D000A7519 /* wrong.png */,
 				629659D21F7CA91D00585878 /* flag.jpg */,
 				01374E271F7455B1000DDDF5 /* Coins.png */,
 				014EA28D1F6E0A340017EAA2 /* profile.png */,
@@ -367,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2268BF71FA5ABEC000A7519 /* dinosaur.png in Resources */,
 				62C05B5E1FA45FD300D02F9F /* mine1.png in Resources */,
 				01AF71C01F6217B500010A92 /* LaunchScreen.storyboard in Resources */,
 				01A375051F69DAB400B3A7D0 /* GoogleService-Info.plist in Resources */,
@@ -377,6 +384,7 @@
 				62C05B601FA4665000D02F9F /* click.wav in Resources */,
 				01AF71BB1F6217B500010A92 /* Main.storyboard in Resources */,
 				014EA2901F6E0A3F0017EAA2 /* rank.png in Resources */,
+				A2268BF51FA5A83D000A7519 /* wrong.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

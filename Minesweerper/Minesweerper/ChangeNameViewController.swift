@@ -53,18 +53,18 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         //Check if user name is empty
         if newName.text == ""{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "UserName should not be empty!"
+            userNameMessage.text = "Should not be empty!"
         }
             
             //Check length of user name
         else if ((newName.text)?.characters.count)! < 4{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "User name should be at least 4 characters"
+            userNameMessage.text = "At least 4 characters"
         }
             
         else if ((newName.text)?.characters.count)! > 15{
             userNameMessage.textColor = UIColor.red
-            userNameMessage.text = "User name should be no longer\nthan 15 characters"
+            userNameMessage.text = "No longer than 15 characters"
         }
             
         else {
