@@ -44,6 +44,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var repeatRegistor: UITextField!
     @IBOutlet weak var repeatMessage: UILabel!
     
+    override func viewDidLoad() {
+        self.emailRegistor.delegate = self
+        self.userNameRegistor.delegate = self
+        self.passwordRegistor.delegate = self
+        self.repeatRegistor.delegate = self
+    }
+    
     @IBAction func RegistButton(_ sender: UIButton) {
         
         email = emailRegistor.text!
@@ -214,15 +221,17 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         return result
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.emailRegistor.resignFirstResponder()
+        self.userNameRegistor.resignFirstResponder()
+        self.passwordRegistor.resignFirstResponder()
+        self.repeatRegistor.resignFirstResponder()
+        return true
+    }
     
     
     

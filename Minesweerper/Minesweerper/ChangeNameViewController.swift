@@ -11,7 +11,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class ChangeNameViewController: UIViewController {
+class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newName: UITextField!
     @IBOutlet weak var userNameMessage: UILabel!
@@ -30,6 +30,11 @@ class ChangeNameViewController: UIViewController {
         })
         self.returnButton.addTarget(self, action: #selector(ChangeNameViewController.backToProfile), for: .touchUpInside)
         self.submitButton.addTarget(self, action: #selector(ChangeNameViewController.submitChange), for: .touchUpInside)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.newName.delegate = self
     }
     
     func submitChange() {
@@ -80,5 +85,14 @@ class ChangeNameViewController: UIViewController {
             vc.selectedIndex = 2
             self.present(vc, animated: true, completion: nil);
         })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.newName.resignFirstResponder()
+        return true
     }
 }

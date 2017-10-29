@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import Firebase
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var oldPassword: UITextField!
     @IBOutlet weak var newPassword: UITextField!
@@ -36,6 +36,13 @@ class ChangePasswordViewController: UIViewController {
         
         self.submitButton.addTarget(self, action: #selector(ChangePasswordViewController.submitChange), for: .touchUpInside)
         self.returnButton.addTarget(self, action: #selector(ChangePasswordViewController.backToProfile), for: .touchUpInside)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.oldPassword.delegate = self
+        self.newPassword.delegate = self
+        self.repeatPassword.delegate = self
     }
     
     func submitChange() {
@@ -116,6 +123,17 @@ class ChangePasswordViewController: UIViewController {
             vc.selectedIndex = 2
             self.present(vc, animated: true, completion: nil);
         })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.oldPassword.resignFirstResponder()
+        self.newPassword.resignFirstResponder()
+        self.repeatPassword.resignFirstResponder()
+        return true
     }
 }
 
