@@ -401,7 +401,9 @@ class GameScene: SKScene {
     func updateCoins(score: Int, level: Int) {
         if level != -1 {
             let temp = level+1
-            var a: userRecord =  userRecord.init(level: temp, points: score)
+            if score != 0 {
+                var a: userRecord =  userRecord.init(level: temp, points: score)
+            }
             self.cuser?.points = self.coins + score
             let ref = Database.database().reference().child("Users").child((self.cuser?.uid)!)
             ref.updateChildValues((cuser?.toTable())!)
